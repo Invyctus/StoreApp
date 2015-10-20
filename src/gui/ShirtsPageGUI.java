@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
  * Georgia Southern University - 900743229
  */
 public class ShirtsPageGUI extends JFrame{
+    //<editor-fold desc="JFrame Objects">
     private JPanel pnlShirts;
     private JComboBox cbColor;
     private JComboBox cbSize;
@@ -32,6 +33,7 @@ public class ShirtsPageGUI extends JFrame{
     private boolean isMens = true;
     private boolean isRotate;
     private static int count;
+    //</editor-fold>
 
     public ShirtsPageGUI() {
         super("Design your shirt");

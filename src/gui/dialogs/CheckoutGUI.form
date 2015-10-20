@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gui.dialogs.CheckoutGUI">
   <grid id="27dc6" binding="pnlCheckout" layout-manager="FormLayout">
-    <rowspec value="center:347px:noGrow"/>
-    <colspec value="fill:500px:noGrow"/>
+    <rowspec value="center:509px:noGrow"/>
+    <colspec value="fill:416px:noGrow"/>
     <constraints>
-      <xy x="20" y="20" width="576" height="478"/>
+      <xy x="20" y="20" width="416" height="509"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -17,14 +17,16 @@
           <forms defaultalign-vert="false"/>
         </constraints>
         <properties>
-          <minimumSize width="563" height="350"/>
-          <preferredSize width="563" height="350"/>
+          <minimumSize width="563" height="510"/>
+          <preferredSize width="563" height="510"/>
         </properties>
         <border type="none"/>
         <children>
           <grid id="39c38" binding="pnlCustomer" layout-manager="FormLayout">
             <rowspec value="center:d:grow"/>
             <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:18px:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:d:grow"/>
             <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:38px:noGrow"/>
@@ -32,53 +34,49 @@
             <rowspec value="center:38px:noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:max(d;4px):noGrow"/>
-            <rowspec value="top:6dlu:noGrow"/>
+            <rowspec value="top:18dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:23px:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:22px:noGrow"/>
+            <rowspec value="top:7dlu:noGrow"/>
             <rowspec value="center:33px:noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:23px:noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:40px:noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
-            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="center:33px:noGrow"/>
             <colspec value="fill:92px:noGrow"/>
-            <colspec value="fill:182px:grow"/>
-            <colspec value="left:98dlu:noGrow"/>
-            <colspec value="fill:max(d;4px):noGrow"/>
+            <colspec value="fill:138px:noGrow"/>
+            <colspec value="left:50dlu:noGrow"/>
+            <colspec value="fill:70px:noGrow"/>
             <constraints>
               <tabbedpane title="Customer Info"/>
             </constraints>
             <properties>
-              <maximumSize width="563" height="350"/>
-              <minimumSize width="563" height="350"/>
-              <preferredSize width="563" height="350"/>
+              <maximumSize width="563" height="500"/>
+              <minimumSize width="563" height="500"/>
+              <preferredSize width="563" height="500"/>
             </properties>
             <border type="none"/>
             <children>
               <component id="ea539" class="javax.swing.JLabel" binding="lblFirst">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                  <forms/>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
                   <text value="First Name: "/>
                 </properties>
               </component>
-              <component id="82a1b" class="javax.swing.JTextField" binding="txtFirst">
-                <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                  <forms defaultalign-horz="false"/>
-                </constraints>
-                <properties>
-                  <text value=""/>
-                  <toolTipText value="Enter first name here"/>
-                </properties>
-              </component>
               <component id="3aa2" class="javax.swing.JLabel" binding="lblLast">
                 <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                  <forms/>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
                   <text value="Last Name:"/>
@@ -86,8 +84,8 @@
               </component>
               <component id="98445" class="javax.swing.JLabel" binding="lblPhone">
                 <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                  <forms/>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
                   <text value="Phone:"/>
@@ -95,8 +93,8 @@
               </component>
               <component id="2b5aa" class="javax.swing.JLabel" binding="lblEmail">
                 <constraints>
-                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                  <forms/>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
                   <text value="Email:"/>
@@ -104,7 +102,7 @@
               </component>
               <component id="9e645" class="javax.swing.JTextField" binding="txtEmail">
                 <constraints>
-                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms defaultalign-horz="false" defaultalign-vert="false"/>
@@ -115,17 +113,17 @@
               </component>
               <component id="2a128" class="javax.swing.JLabel" binding="lblRegister">
                 <constraints>
-                  <grid row="10" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                  <forms/>
+                  <grid row="20" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
                 </constraints>
                 <properties>
-                  <text value="------------Register an Account----------------------------------------------------------------------------------"/>
+                  <text value="------------Register an Account---------------------------------------------------------------"/>
                 </properties>
               </component>
               <component id="66b53" class="javax.swing.JLabel" binding="lblUser">
                 <constraints>
-                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                  <forms/>
+                  <grid row="22" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
                   <text value="Username:"/>
@@ -133,8 +131,8 @@
               </component>
               <component id="b6af4" class="javax.swing.JLabel" binding="lblPass">
                 <constraints>
-                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                  <forms/>
+                  <grid row="24" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
                   <text value="Password: "/>
@@ -142,7 +140,7 @@
               </component>
               <component id="9b208" class="javax.swing.JTextField" binding="textField1" default-binding="true">
                 <constraints>
-                  <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="24" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms defaultalign-horz="false"/>
@@ -151,9 +149,9 @@
                   <toolTipText value="Enter password here"/>
                 </properties>
               </component>
-              <component id="a5867" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+              <component id="a5867" class="javax.swing.JTextField" binding="txtPhone">
                 <constraints>
-                  <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms defaultalign-horz="false"/>
@@ -162,9 +160,9 @@
                   <toolTipText value="Enter phone number here"/>
                 </properties>
               </component>
-              <component id="39f39" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+              <component id="39f39" class="javax.swing.JTextField" binding="txtLast">
                 <constraints>
-                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms defaultalign-horz="false"/>
@@ -175,8 +173,8 @@
               </component>
               <component id="f16a9" class="javax.swing.JButton" binding="btnNext">
                 <constraints>
-                  <grid row="16" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                  <forms defaultalign-horz="false"/>
+                  <grid row="26" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="5" right="5" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
                   <label value="Next"/>
@@ -185,8 +183,8 @@
               </component>
               <component id="2b2f7" class="javax.swing.JButton" binding="btnBack">
                 <constraints>
-                  <grid row="16" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                  <forms defaultalign-horz="false"/>
+                  <grid row="26" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="5" bottom="5" right="0" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
                   <label value="Continue Shopping"/>
@@ -195,7 +193,7 @@
               </component>
               <component id="ae17" class="javax.swing.JTextField" binding="txtUser">
                 <constraints>
-                  <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="22" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms defaultalign-horz="false"/>
@@ -204,27 +202,462 @@
                   <toolTipText value="Enter username here"/>
                 </properties>
               </component>
+              <component id="75f0c" class="javax.swing.JLabel" binding="lblAddress">
+                <constraints>
+                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="Address:"/>
+                </properties>
+              </component>
+              <component id="3cbac" class="javax.swing.JLabel" binding="lblState">
+                <constraints>
+                  <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="State:"/>
+                </properties>
+              </component>
+              <component id="7282a" class="javax.swing.JLabel" binding="lblCity">
+                <constraints>
+                  <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="City:"/>
+                </properties>
+              </component>
+              <component id="4770a" class="javax.swing.JLabel" binding="lblZip">
+                <constraints>
+                  <grid row="16" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="ZipCode:"/>
+                </properties>
+              </component>
+              <component id="7317b" class="javax.swing.JTextField" binding="txtSZip">
+                <constraints>
+                  <grid row="16" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter your zip code"/>
+                </properties>
+              </component>
+              <component id="b7df8" class="javax.swing.JTextField" binding="txtSCity">
+                <constraints>
+                  <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter your city"/>
+                </properties>
+              </component>
+              <component id="4af9f" class="javax.swing.JTextField" binding="txtSAddr2">
+                <constraints>
+                  <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter your address: line 2"/>
+                </properties>
+              </component>
+              <component id="6a7ce" class="javax.swing.JTextField" binding="txtSAddr1">
+                <constraints>
+                  <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter your address: line 1"/>
+                </properties>
+              </component>
+              <component id="66f80" class="javax.swing.JLabel" binding="lblCountry">
+                <constraints>
+                  <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="Country:"/>
+                </properties>
+              </component>
+              <component id="aa4b0" class="javax.swing.JTextField" binding="txtSCountry">
+                <constraints>
+                  <grid row="18" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value=""/>
+                  <toolTipText value="Enter your country"/>
+                </properties>
+              </component>
+              <component id="e0367" class="javax.swing.JTextField" binding="txtSState">
+                <constraints>
+                  <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value=""/>
+                  <toolTipText value="Enter your state"/>
+                </properties>
+              </component>
+              <component id="82d54" class="javax.swing.JLabel" binding="lblShipping">
+                <constraints>
+                  <grid row="11" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="------------Shipping Address-------------------------------------------------------------------------"/>
+                </properties>
+              </component>
+              <component id="82a1b" class="javax.swing.JTextField" binding="txtFirst">
+                <constraints>
+                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value=""/>
+                  <toolTipText value="Enter first name here"/>
+                </properties>
+              </component>
+              <component id="b898a" class="javax.swing.JLabel" binding="lblInfo">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="------------Your Info---------------------------------------------------------------------------------------"/>
+                </properties>
+              </component>
             </children>
           </grid>
-          <grid id="37d04" binding="pnlAddress" layout-manager="FormLayout">
-            <rowspec value="center:d:grow"/>
-            <colspec value="fill:d:grow"/>
+          <grid id="23142" binding="pnlPayment" layout-manager="FormLayout">
+            <rowspec value="center:36px:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:38px:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:38px:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:18dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:23px:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:22px:noGrow"/>
+            <rowspec value="top:7dlu:noGrow"/>
+            <rowspec value="center:33px:noGrow"/>
+            <colspec value="fill:111px:noGrow"/>
+            <colspec value="fill:48px:noGrow"/>
+            <colspec value="left:34dlu:noGrow"/>
+            <colspec value="fill:20px:noGrow"/>
+            <colspec value="left:31dlu:noGrow"/>
+            <colspec value="left:4dlu:noGrow"/>
+            <colspec value="fill:14px:noGrow"/>
+            <colspec value="fill:70px:noGrow"/>
             <constraints>
-              <tabbedpane title="Address Info" enabled="false"/>
+              <tabbedpane title="Payment Info"/>
             </constraints>
-            <properties/>
-            <border type="none"/>
-            <children/>
-          </grid>
-          <grid id="5e7fd" binding="pnlPayment" layout-manager="FormLayout">
-            <rowspec value="center:d:grow"/>
-            <colspec value="fill:d:grow"/>
-            <constraints>
-              <tabbedpane title="Payment Info" enabled="false"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children/>
+            <properties>
+              <maximumSize width="563" height="500"/>
+              <minimumSize width="563" height="500"/>
+              <preferredSize width="563" height="500"/>
+            </properties>
+            <border type="none" title=""/>
+            <children>
+              <component id="b1600" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="Card Number: "/>
+                </properties>
+              </component>
+              <component id="e92c0" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="CCV: "/>
+                </properties>
+              </component>
+              <component id="371bb" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="Exp Date:"/>
+                </properties>
+              </component>
+              <component id="dcaed" class="javax.swing.JTextField" binding="txtCardCCV">
+                <constraints>
+                  <grid row="6" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter phone number here"/>
+                </properties>
+              </component>
+              <component id="e3d6a" class="javax.swing.JTextField" binding="txtCardNum">
+                <constraints>
+                  <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter last name here"/>
+                </properties>
+              </component>
+              <component id="e1a7a" class="javax.swing.JButton" binding="btnNext2">
+                <constraints>
+                  <grid row="18" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="5" right="5" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <label value="Next"/>
+                  <text value="Next"/>
+                </properties>
+              </component>
+              <component id="ef1ba" class="javax.swing.JButton" binding="btnBack2">
+                <constraints>
+                  <grid row="18" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="5" bottom="5" right="0" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <label value="Back"/>
+                  <text value="Back"/>
+                </properties>
+              </component>
+              <component id="c3cff" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="Address:"/>
+                </properties>
+              </component>
+              <component id="211ad" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="10" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="State:"/>
+                </properties>
+              </component>
+              <component id="58f6c" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="City:"/>
+                </properties>
+              </component>
+              <component id="84678" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="14" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="ZipCode:"/>
+                </properties>
+              </component>
+              <component id="cd71d" class="javax.swing.JTextField" binding="txtBZip">
+                <constraints>
+                  <grid row="14" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter your zip code"/>
+                </properties>
+              </component>
+              <component id="6e970" class="javax.swing.JTextField" binding="txtBCity">
+                <constraints>
+                  <grid row="14" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter your city"/>
+                </properties>
+              </component>
+              <component id="d2836" class="javax.swing.JTextField" binding="txtBAddr2">
+                <constraints>
+                  <grid row="12" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter your address: line 2"/>
+                </properties>
+              </component>
+              <component id="370a4" class="javax.swing.JTextField" binding="txtBAddr1">
+                <constraints>
+                  <grid row="10" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter your address: line 1"/>
+                </properties>
+              </component>
+              <component id="4a494" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="Country:"/>
+                </properties>
+              </component>
+              <component id="47056" class="javax.swing.JTextField" binding="txtBCountry">
+                <constraints>
+                  <grid row="16" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter your country"/>
+                </properties>
+              </component>
+              <component id="5bde4" class="javax.swing.JTextField" binding="txtBState">
+                <constraints>
+                  <grid row="10" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value=""/>
+                  <toolTipText value="Enter your state"/>
+                </properties>
+              </component>
+              <component id="e2c45" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="8" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="------------Payment Info--------------------------------------------------------------------------------------"/>
+                </properties>
+              </component>
+              <component id="d8caf" class="javax.swing.JComboBox" binding="cbYear">
+                <constraints>
+                  <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="2015"/>
+                    <item value="2016"/>
+                    <item value="2017"/>
+                    <item value="2018"/>
+                    <item value="2019"/>
+                    <item value="2020"/>
+                    <item value="2021"/>
+                    <item value="2022"/>
+                    <item value="2023"/>
+                    <item value="2024"/>
+                    <item value="2025"/>
+                  </model>
+                </properties>
+              </component>
+              <component id="4eca6" class="javax.swing.JComboBox" binding="cbMonth">
+                <constraints>
+                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="1"/>
+                    <item value="2"/>
+                    <item value="3"/>
+                    <item value="4"/>
+                    <item value="5"/>
+                    <item value="6"/>
+                    <item value="7"/>
+                    <item value="8"/>
+                    <item value="9"/>
+                    <item value="10"/>
+                    <item value="11"/>
+                    <item value="12"/>
+                  </model>
+                </properties>
+              </component>
+              <component id="886bc" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value="Name on Card:"/>
+                </properties>
+              </component>
+              <component id="ec482" class="javax.swing.JTextField" binding="txtCardName">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <text value=""/>
+                  <toolTipText value="Enter first name here"/>
+                </properties>
+              </component>
+              <component id="8098c" class="javax.swing.JCheckBox" binding="chbShipping">
+                <constraints>
+                  <grid row="9" column="3" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Same as Shipping? ----------------------------------"/>
+                </properties>
+              </component>
+              <component id="6906d" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="9" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="------------Billing Address--------------------------------------------------------------------------------------"/>
+                </properties>
+              </component>
+            </children>
           </grid>
           <grid id="a9bec" binding="pnlOrder" layout-manager="FormLayout">
             <rowspec value="center:d:grow"/>

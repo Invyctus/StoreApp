@@ -15,12 +15,14 @@ import java.awt.event.ActionListener;
  */
 public class HomeGUI extends JFrame {
 
+    //<editor-fold desc="JFrame Objects">
     private JPanel pnlHome;
     private JLabel lblTitle;
     private JButton btnMen;
     private JLabel lblWomen;
     private JButton btnWomen;
     private JLabel lblMen;
+    //</editor-fold>
 
     public HomeGUI() {
         super("Store GUI");
