@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gui.HomeGUI">
+  <grid id="27dc6" binding="pnlHome" layout-manager="FormLayout">
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="center:75px:noGrow"/>
+    <rowspec value="center:247px:grow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:41px:noGrow"/>
+    <colspec value="fill:185px:noGrow"/>
+    <colspec value="fill:69px:noGrow"/>
+    <colspec value="fill:185px:noGrow"/>
+    <constraints>
+      <xy x="20" y="20" width="439" height="394"/>
+    </constraints>
+    <properties>
+      <name value="Store GUI"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="d6e50" class="javax.swing.JLabel" binding="lblTitle">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <font name="Graphite Std" size="26" style="1"/>
+          <text value="Shirt Designer"/>
+        </properties>
+      </component>
+      <component id="3d09c" class="javax.swing.JButton" binding="btnMen">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <font name="Graphite Std" size="16"/>
+          <label value="Shop Men's Shirts"/>
+          <text value="Shop Men's Shirts"/>
+        </properties>
+      </component>
+      <component id="db4e6" class="javax.swing.JLabel" binding="lblMen">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <icon value="resources/MensShirtImgs/rsz_men_shirt_185x232.jpg"/>
+          <text value="Label"/>
+        </properties>
+      </component>
+      <component id="f0868" class="javax.swing.JButton" binding="btnWomen">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <font name="Graphite Std" size="16"/>
+          <label value="Shop Women's Shirts"/>
+          <text value="Shop Women's Shirts"/>
+        </properties>
+      </component>
+      <component id="90b26" class="javax.swing.JLabel" binding="lblWomen">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <icon value="resources/WomensShirtImgs/rsz_womens_shirt_185x232.jpg"/>
+          <text value=""/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
