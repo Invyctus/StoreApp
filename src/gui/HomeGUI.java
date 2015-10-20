@@ -28,8 +28,8 @@ public class HomeGUI extends JFrame {
         setContentPane(pnlHome);
         setSize(445,400);
         setResizable(false);
-        setLocationRelativeTo(null);
         pack();
+        setLocationRelativeTo(null);
         setVisible(true);
 
         btnMen.addActionListener(new ActionListener() {

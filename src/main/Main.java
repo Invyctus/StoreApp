@@ -14,6 +14,7 @@ import javax.swing.*;
  * Will talk directly to GUI, GUI will talk to Controllers, Controllers will talk to Models - MVC
  */
 public class Main {
+    private int count = 0;
     public static void main(String[] args) {
 
         // Changes look and feel to HiFiLook and feel of JTattoo Library

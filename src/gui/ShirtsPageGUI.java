@@ -1,5 +1,7 @@
 package gui;
 
+import gui.dialogs.CheckoutGUI;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,8 +27,11 @@ public class ShirtsPageGUI extends JFrame{
     private JButton btnView;
     private JTextArea txtarFeatures;
     private JTextArea txtarDescription;
-    private boolean isMens;
+    private JButton btnCheckout;
+    private JLabel lblCount;
+    private boolean isMens = true;
     private boolean isRotate;
+    private static int count;
 
     public ShirtsPageGUI() {
         super("Design your shirt");
@@ -34,9 +39,10 @@ public class ShirtsPageGUI extends JFrame{
         setContentPane(pnlShirts);
         setSize(800,800);
         setResizable(false);
-        setLocationRelativeTo(null);
         pack();
+        setLocationRelativeTo(null);
         setVisible(true);
+        lblCount.setText(String.valueOf(getCount()));
 
         btnBack.addActionListener(new ActionListener() {
             @Override
@@ -74,6 +80,25 @@ public class ShirtsPageGUI extends JFrame{
                 }
             }
         });
+
+        btnCheckout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                CheckoutGUI checkoutGUI = new CheckoutGUI();
+            }
+        });
+
+        /**
+         * Todo: When added to cart add item to database line item
+         */
+        btnAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setCount();
+                lblCount.setText(String.valueOf(getCount()));
+            }
+        });
     }
 
     public void getMensIcon() {
@@ -88,8 +113,11 @@ public class ShirtsPageGUI extends JFrame{
     public void setVisible(boolean b) {
         super.setVisible(b);
     }
+
     public void setIsMens(boolean b) {
         isMens = b;
     }
 
+    public void setCount() { count += 1; }
+    public int getCount() { return count; }
 }
