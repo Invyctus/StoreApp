@@ -1,5 +1,6 @@
 package gui;
 
+import gui.dialogs.CartGUI;
 import gui.dialogs.CheckoutGUI;
 
 import javax.swing.*;
@@ -11,8 +12,22 @@ import java.awt.event.ActionListener;
  * Date Created: 10/19/2015
  * Georgia Southern University - 900743229
  */
+/*
+    Todo: For ShirtsPage
+        Add Patterns for shirts
+        Add infrastructure - could include factory pattern and decorator pattern in creation of shirt
+        Have items added to cart in database when add to cart clicked
+        Have images display on shirt
+        Display patterns on shirt imgicon
+        State Pattern for the shirtspage depending on whether shopping male shirts or female shirts
+        Clean up ShirtsPageGui
+
+        Optional:
+        Listener Pattern to add users to a waitlist if item is not in stock
+        Allow users to import their own patterns
+ */
 public class ShirtsPageGUI extends JFrame{
-    //<editor-fold desc="JFrame Objects">
+    //<editor-fold defaultstate="collapsed" desc="JFrame Objects">
     private JPanel pnlShirts;
     private JComboBox cbColor;
     private JComboBox cbSize;
@@ -46,6 +61,7 @@ public class ShirtsPageGUI extends JFrame{
         setVisible(true);
         lblCount.setText(String.valueOf(getCount()));
 
+        //<editor-fold defaultstate="collapsed" desc="Button Listeners">
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,11 +69,7 @@ public class ShirtsPageGUI extends JFrame{
                 HomeGUI homeGUI = new HomeGUI();
             }
         });
-        /**
-         * Todo: USE A STATE PATTERN HERE!!!!!! PLEASE
-         * Have a men's state and women's state for the gui so
-         * the pictures display appropriately
-         */
+
         btnView.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,13 +99,10 @@ public class ShirtsPageGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                CheckoutGUI checkoutGUI = new CheckoutGUI();
+                CartGUI cartGUI = new CartGUI();
             }
         });
 
-        /**
-         * Todo: When added to cart add item to database line item
-         */
         btnAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -101,6 +110,7 @@ public class ShirtsPageGUI extends JFrame{
                 lblCount.setText(String.valueOf(getCount()));
             }
         });
+        //</editor-fold>
     }
 
     public void getMensIcon() {
@@ -112,6 +122,8 @@ public class ShirtsPageGUI extends JFrame{
         ImageIcon womensIcon = new ImageIcon("C:\\Users\\User\\IdeaProjects\\StoreApp\\src\\resources\\WomensShirtImgs\\rsz_womens_shirt_385x409.jpg");
         lblPicture.setIcon(womensIcon);
     }
+    public int getCount() { return count; }
+
     public void setVisible(boolean b) {
         super.setVisible(b);
     }
@@ -121,5 +133,5 @@ public class ShirtsPageGUI extends JFrame{
     }
 
     public void setCount() { count += 1; }
-    public int getCount() { return count; }
+
 }

@@ -1,8 +1,6 @@
 package gui.dialogs;
 
 import gui.HomeGUI;
-import gui.ShirtsPageGUI;
-
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -14,13 +12,40 @@ import java.awt.event.ActionListener;
  * Date Created: 10/20/2015
  * Georgia Southern University - 900743229
  */
+/*
+    Todo: For CheckOut
+        Customer Info Tab:
+            State Pattern if logged in do not display register an account
+            If not logged in, Register an Account appears BUT NOT REQUIRED!!!
+            Do not accept null values in the text areas (form must be filled out)
+            Clean up GUI
+        Payment Info Tab:
+            Strategy Pattern for payment through paypal and credit card or some other means
+            Alter GUI to account for the stategy pattern
+            Do not allow user to continue with null values in any fields (Check customer info and payment info pane before order summary)
+        Order Summary Tab:
+            Has nothing on it at the moment
+            Will display item price, quantity, taxes, shipping total, a subtotal before taxes & shipping (or just before taxes), an order total for everything
+            Will have a submit button that once pressed will finalize the order, add everything to the database and bring up a receipt panel
+            Receipt Panel will likely just be a message box with the same info as the order summary in it
+
+        Optional:
+            Customer Info Tab:
+                Button to allow for login if they have an account but forgot to log in on home page
+                Set next button to Checkout as Guest if no account and register and account not filled out
+            Payment Info Tab:
+
+            Order Summary Tab:
+
+            Receipt Tab:
+                Printable receipt or option to save receipt
+ */
 public class CheckoutGUI extends JFrame {
-    //<editor-fold desc="JFrame Objects">
+    //<editor-fold defaultstate="collapsed" desc="JFrame Objects">
     private JTabbedPane tbCheckOut;
     private JPanel pnlCheckout;
     private JPanel pnlCustomer;
     private JPanel pnlOrder;
-    private JPanel pnlReceipt;
     private JTextField txtFirst;
     private JLabel lblFirst;
     private JLabel lblLast;
@@ -64,7 +89,13 @@ public class CheckoutGUI extends JFrame {
     private JTextField txtBState;
     private JTextField txtBZip;
     private JCheckBox chbShipping;
+    private JRadioButton rbStandard;
+    private JRadioButton rbPriority;
+    private JRadioButton rbOvernight;
     boolean isMens;
+    final static double standard = 5.00;
+    final static double priority = 9.45;
+    final static double overnight = 21.75;
     //</editor-fold>
 
     /**
@@ -82,6 +113,12 @@ public class CheckoutGUI extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
+        // Set radio buttons into group so only one is selectable
+        ButtonGroup shippingGroup = new ButtonGroup();
+        shippingGroup.add(rbStandard);
+        shippingGroup.add(rbPriority);
+        shippingGroup.add(rbOvernight);
+
        tbCheckOut.addChangeListener(new ChangeListener() {
            @Override
            public void stateChanged(ChangeEvent e) {
@@ -89,7 +126,7 @@ public class CheckoutGUI extends JFrame {
                    setSize(407, 538);
                }
                else if (tbCheckOut.getSelectedIndex() == 1) {
-                   setSize(407,425);
+                   setSize(407,520);
                }
                else if (tbCheckOut.getSelectedIndex() == 2) {
                    setSize(500,500);
@@ -99,16 +136,24 @@ public class CheckoutGUI extends JFrame {
                }
            }
        });
-        /**
-         * Todo: if is checked populate billing with shipping info
-         */
-        chbShipping.isSelected();
-        //<editor-fold desc="Button Action Listeners">
+
+       chbShipping.addChangeListener(new ChangeListener() {
+           @Override
+           public void stateChanged(ChangeEvent e) {
+               if (chbShipping.isSelected()) {
+                   setBillingSameAsShipping();
+               } else {
+                  setAllBillingNull();
+               }
+           }
+       });
+
+        //<editor-fold defaultstate="collapsed" desc="Button Action Listeners">
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                HomeGUI homeGUI = new HomeGUI();
+                CartGUI cartGUI = new CartGUI();
 
             }
         });
@@ -151,11 +196,21 @@ public class CheckoutGUI extends JFrame {
      * Method to set the billing same as shipping
      */
     public void setBillingSameAsShipping() {
-        txtBAddr1.setText(String.valueOf(txtSAddr1));
-        txtBAddr2.setText(String.valueOf(txtSAddr2));
-        txtBCountry.setText(String.valueOf(txtSCountry));
-        txtBZip.setText(String.valueOf(txtSZip));
-        txtBCity.setText(String.valueOf(txtSCity));
+        txtBAddr1.setText(txtSAddr1.getText());
+        txtBAddr2.setText(txtSAddr2.getText());
+        txtBCountry.setText(txtSCountry.getText());
+        txtBZip.setText(txtSZip.getText());
+        txtBCity.setText(txtSCity.getText());
+        txtBState.setText(txtSState.getText());
+
+    }
+    public void setAllBillingNull() {
+        txtBAddr1.setText("");
+        txtBAddr2.setText("");
+        txtBCity.setText("");
+        txtBCountry.setText("");
+        txtBZip.setText("");
+        txtBState.setText("");
 
     }
 

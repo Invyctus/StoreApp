@@ -3,56 +3,64 @@ package utils;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Serves as connection to oracle database.
  * Handles input and output from the database.
  */
 public class IODB {
+    //<editor-fold desc="DB Connection Information">
     private static String user = "invictus";
     private static String password = "password";
     private static String dbName = "ORCL";
     private static String host = "localhost";
     private static String port = "1521";
+    //</editor-fold>
 
 
     private static class DBConnection {
-        private static java.sql.Connection conn = createConnection();
+        private static java.sql.Connection conn = null;
 
         /**
-         * Refreshes the connection by closing out and establishing instance of connection again
+         * Singleton: create only one instance of connection
+         * @return conn
          */
-        private static void refConnection() {
+        private static void createConnection() {
+            JFrame connMessageFrame = createLoadingFrame("Connecting to database...");
+
+            try {
+                conn = DriverManager.getConnection("jdbc:oracle:thin:@" +
+                                host + ":" + port + ":" + dbName,
+                        user, password);
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error connecting to the database.",
+                        JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
+            connMessageFrame.dispose();
+            System.out.println("Connected to database");
+        }
+
+        public static void closeConnection() {
             try {
                 conn.close();
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Error reloading connection.",
                         JOptionPane.ERROR_MESSAGE);
             }
-            conn = createConnection();
+        }
+        public static Connection getConnection() {
+            if (conn != null)
+                return conn;
+            else
+                createConnection();
+            return conn;
         }
     }
 
-    /**
-     * Uses a singleton to store the instance of the connection. Will only create the connection once.
-     * @return conn
-     */
-    private static Connection createConnection() {
-        Connection conn = null;
-        JFrame connMessageFrame = createLoadingFrame("Connecting to database...");
-
-        try {
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@" +
-                            host + ":" + port + ":" + dbName,
-                    user, password);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Error connecting to the database.",
-                    JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
-        }
-        connMessageFrame.dispose();
-        System.out.println("Connected to database");
-        return conn;
+    public static void instantiate() {
+        DBConnection.createConnection();
     }
 
     /**
@@ -78,50 +86,54 @@ public class IODB {
     }
 
     /**
-     * Refresh connection
-     */
-    public static void refConnection() { DBConnection.refConnection(); }
-
-    /**
-     * Call to create connection
-     * @return database connection
-     */
-    public static Connection getConnection(){ return DBConnection.conn; }
-
-
-    /**
-     * Function for running sql queries on database. Call to the database with this function.
-     *
-     * Use:
-     * To insert a variable use ?.
-     * Do NOT include ; at end of query
-     *
-     * Use Example:
-     * ResultSet thisQuery = DBConnection.getQueryResults("SELECT * FROM CUSTOMERS WHERE CUSTID = ?", "1");
-     *
+     * Take the sql query and get data from database
      * @param sqlQuery
-     * @param args
-     * @return ResultSet object to be used to pull the results of the query
+     * @return results
      */
-    public static ResultSet getQueryResults(String sqlQuery, String... args) {
+    public static ArrayList<ArrayList<Object>> getQueryResults(String sqlQuery) {
+        ArrayList<ArrayList<Object>> results = new ArrayList<ArrayList<Object>>(10);
 
-        Connection conn = getConnection();
-
-        ResultSet results;
         try {
-            PreparedStatement stmt = conn.prepareStatement(sqlQuery, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = DBConnection.getConnection().createStatement().executeQuery(sqlQuery);
 
-            for(int i = 0; i < args.length; i++){
-                int index = i + 1;
-                stmt.setString(index, args[i]);
+            if(!rs.next()) {
+
+            } else {
+                do{
+                    ArrayList<Object> tempRow = new ArrayList<>(10);
+                    for(int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                        tempRow.add(rs.getObject(i));
+                    }
+                    results.add(tempRow);
+                } while (rs.next());
             }
-            results = stmt.executeQuery();
+            rs.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Error returning query results",
-                    JOptionPane.ERROR_MESSAGE);
-            results = null;
+            e.printStackTrace();
         }
         return results;
+    }
+
+    /**
+     * Insert, Update, Delete, Alter, etc... data within the database
+     * @param queries
+     * @return results
+     */
+    public static int[] executeQueries(String ... queries) {
+
+        try {
+            Statement stmt = DBConnection.getConnection().createStatement();
+           for(String query: queries) {
+               stmt.addBatch(query);
+           }
+
+            int[] results = stmt.executeBatch();
+            System.out.println("Query executed successfully:");
+            return results;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
