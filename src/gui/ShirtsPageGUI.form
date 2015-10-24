@@ -54,6 +54,9 @@
         <properties>
           <actionCommand value="Back"/>
           <label value="Back"/>
+          <maximumSize width="100" height="32"/>
+          <minimumSize width="100" height="32"/>
+          <preferredSize width="100" height="32"/>
           <text value="Back"/>
         </properties>
       </component>
@@ -63,6 +66,9 @@
           <forms top="5" left="0" bottom="5" right="5" defaultalign-horz="false"/>
         </constraints>
         <properties>
+          <maximumSize width="100" height="32"/>
+          <minimumSize width="100" height="32"/>
+          <preferredSize width="100" height="32"/>
           <text value="Add to Cart"/>
         </properties>
       </component>

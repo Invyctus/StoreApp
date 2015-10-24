@@ -1,4 +1,6 @@
-package gui;
+package gui.Home;
+
+import gui.ShirtsPageGUI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -39,6 +41,8 @@ public class HomeGUI extends JFrame {
     private JLabel lblWomen;
     private JButton btnWomen;
     private JLabel lblMen;
+    private JButton btnSignUp;
+    private JButton btnLogIn;
     //</editor-fold>
 
     public HomeGUI() {
@@ -70,6 +74,20 @@ public class HomeGUI extends JFrame {
                 shirtsPage.getWomensIcon();
                 shirtsPage.setVisible(true);
                 shirtsPage.setIsMens(false);
+            }
+        });
+
+        btnLogIn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LogInGUI logInGUI = new LogInGUI();
+            }
+        });
+
+        btnSignUp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    SignUpGUI signUpGUI = new SignUpGUI();
             }
         });
         //</editor-fold>

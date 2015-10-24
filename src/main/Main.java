@@ -1,10 +1,9 @@
 package main;
 
-import gui.HomeGUI;
+import gui.Home.HomeGUI;
 import utils.IODB;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
 /**
  * Author: John Russell
@@ -45,16 +44,15 @@ public class Main {
         IODB.instantiate();
 
 
-        /*
-         Example insert data to database
+        /* Example insert data to database
 
         String insertQuery = "INSERT INTO CUSTOMERS (CUSTFIRSTNAME, CUSTLASTNAME, CUSTEMAIL, CUSTPHONE) VALUES ('Inserted', 'FromJava', 'insertfromjava@works.com', '123-098-7645')";
         IODB.executeQueries(insertQuery);
 
-        /**
-         * Example pull data from database
+        */
+         /* Example pull data from database
 
-        String query = "SELECT CUSTEMAIL FROM CUSTOMERS";
+        String query = "SELECT * FROM ITEMS";
         ArrayList<ArrayList<Object>> test = IODB.getQueryResults(query);
 
         for (ArrayList<Object> arrayList : test) {

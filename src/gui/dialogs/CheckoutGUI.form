@@ -17,17 +17,18 @@
           <forms defaultalign-vert="false"/>
         </constraints>
         <properties>
-          <minimumSize width="563" height="510"/>
-          <preferredSize width="563" height="510"/>
+          <enabled value="true"/>
+          <focusable value="true"/>
+          <minimumSize width="407" height="415"/>
+          <preferredSize width="407" height="550"/>
+          <requestFocusEnabled value="true"/>
         </properties>
         <border type="none"/>
         <children>
           <grid id="39c38" binding="pnlCustomer" layout-manager="FormLayout">
-            <rowspec value="center:d:grow"/>
-            <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:18px:noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
-            <rowspec value="center:d:grow"/>
+            <rowspec value="center:d:noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:38px:noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
@@ -43,30 +44,32 @@
             <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:22px:noGrow"/>
             <rowspec value="top:7dlu:noGrow"/>
-            <rowspec value="center:33px:noGrow"/>
-            <rowspec value="top:4dlu:noGrow"/>
-            <rowspec value="center:23px:noGrow"/>
-            <rowspec value="top:4dlu:noGrow"/>
-            <rowspec value="center:40px:noGrow"/>
-            <rowspec value="top:4dlu:noGrow"/>
-            <rowspec value="center:33px:noGrow"/>
+            <rowspec value="center:43px:noGrow"/>
             <colspec value="fill:92px:noGrow"/>
+            <colspec value="left:4dlu:noGrow"/>
             <colspec value="fill:138px:noGrow"/>
-            <colspec value="left:50dlu:noGrow"/>
-            <colspec value="fill:70px:noGrow"/>
+            <colspec value="left:48dlu:noGrow"/>
+            <colspec value="fill:80px:noGrow"/>
             <constraints>
               <tabbedpane title="Customer Info"/>
             </constraints>
             <properties>
-              <maximumSize width="563" height="500"/>
-              <minimumSize width="563" height="500"/>
-              <preferredSize width="563" height="500"/>
+              <doubleBuffered value="true"/>
+              <enabled value="true"/>
+              <focusCycleRoot value="false"/>
+              <maximumSize width="407" height="415"/>
+              <minimumSize width="407" height="415"/>
+              <opaque value="true"/>
+              <preferredSize width="407" height="415"/>
+              <requestFocusEnabled value="false"/>
+              <verifyInputWhenFocusTarget value="true"/>
+              <visible value="false"/>
             </properties>
             <border type="none"/>
             <children>
               <component id="ea539" class="javax.swing.JLabel" binding="lblFirst">
                 <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                   <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
@@ -75,7 +78,7 @@
               </component>
               <component id="3aa2" class="javax.swing.JLabel" binding="lblLast">
                 <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                   <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
@@ -84,7 +87,7 @@
               </component>
               <component id="98445" class="javax.swing.JLabel" binding="lblPhone">
                 <constraints>
-                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                   <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
@@ -93,7 +96,7 @@
               </component>
               <component id="2b5aa" class="javax.swing.JLabel" binding="lblEmail">
                 <constraints>
-                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                   <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
@@ -102,7 +105,7 @@
               </component>
               <component id="9e645" class="javax.swing.JTextField" binding="txtEmail">
                 <constraints>
-                  <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms defaultalign-horz="false" defaultalign-vert="false"/>
@@ -111,47 +114,9 @@
                   <toolTipText value="Enter email address here"/>
                 </properties>
               </component>
-              <component id="2a128" class="javax.swing.JLabel" binding="lblRegister">
-                <constraints>
-                  <grid row="20" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
-                  <forms defaultalign-vert="false"/>
-                </constraints>
-                <properties>
-                  <text value="------------Register an Account---------------------------------------------------------------"/>
-                </properties>
-              </component>
-              <component id="66b53" class="javax.swing.JLabel" binding="lblUser">
-                <constraints>
-                  <grid row="22" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
-                </constraints>
-                <properties>
-                  <text value="Username:"/>
-                </properties>
-              </component>
-              <component id="b6af4" class="javax.swing.JLabel" binding="lblPass">
-                <constraints>
-                  <grid row="24" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                  <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
-                </constraints>
-                <properties>
-                  <text value="Password: "/>
-                </properties>
-              </component>
-              <component id="9b208" class="javax.swing.JTextField" binding="textField1" default-binding="true">
-                <constraints>
-                  <grid row="24" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                  <forms defaultalign-horz="false"/>
-                </constraints>
-                <properties>
-                  <toolTipText value="Enter password here"/>
-                </properties>
-              </component>
               <component id="a5867" class="javax.swing.JTextField" binding="txtPhone">
                 <constraints>
-                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms defaultalign-horz="false"/>
@@ -162,7 +127,7 @@
               </component>
               <component id="39f39" class="javax.swing.JTextField" binding="txtLast">
                 <constraints>
-                  <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms defaultalign-horz="false"/>
@@ -173,38 +138,33 @@
               </component>
               <component id="f16a9" class="javax.swing.JButton" binding="btnNext">
                 <constraints>
-                  <grid row="26" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="18" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                   <forms top="0" left="0" bottom="5" right="5" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
                   <label value="Next"/>
+                  <maximumSize width="100" height="35"/>
+                  <minimumSize width="100" height="35"/>
+                  <preferredSize width="100" height="35"/>
                   <text value="Next"/>
                 </properties>
               </component>
               <component id="2b2f7" class="javax.swing.JButton" binding="btnBack">
                 <constraints>
-                  <grid row="26" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="18" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                   <forms top="0" left="5" bottom="5" right="0" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
                   <label value="Back to Cart"/>
+                  <maximumSize width="100" height="35"/>
+                  <minimumSize width="100" height="35"/>
+                  <preferredSize width="100" height="35"/>
                   <text value="Back to Cart"/>
-                </properties>
-              </component>
-              <component id="ae17" class="javax.swing.JTextField" binding="txtUser">
-                <constraints>
-                  <grid row="22" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                  <forms defaultalign-horz="false"/>
-                </constraints>
-                <properties>
-                  <toolTipText value="Enter username here"/>
                 </properties>
               </component>
               <component id="75f0c" class="javax.swing.JLabel" binding="lblAddress">
                 <constraints>
-                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                   <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
@@ -213,7 +173,7 @@
               </component>
               <component id="3cbac" class="javax.swing.JLabel" binding="lblState">
                 <constraints>
-                  <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                   <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
@@ -222,7 +182,7 @@
               </component>
               <component id="7282a" class="javax.swing.JLabel" binding="lblCity">
                 <constraints>
-                  <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                   <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
@@ -231,7 +191,7 @@
               </component>
               <component id="4770a" class="javax.swing.JLabel" binding="lblZip">
                 <constraints>
-                  <grid row="16" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="14" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                   <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
@@ -240,7 +200,7 @@
               </component>
               <component id="b7df8" class="javax.swing.JTextField" binding="txtSCity">
                 <constraints>
-                  <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms defaultalign-horz="false"/>
@@ -251,7 +211,7 @@
               </component>
               <component id="4af9f" class="javax.swing.JTextField" binding="txtSAddr2">
                 <constraints>
-                  <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms defaultalign-horz="false"/>
@@ -260,20 +220,9 @@
                   <toolTipText value="Enter your address: line 2"/>
                 </properties>
               </component>
-              <component id="6a7ce" class="javax.swing.JTextField" binding="txtSAddr1">
-                <constraints>
-                  <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                  <forms defaultalign-horz="false"/>
-                </constraints>
-                <properties>
-                  <toolTipText value="Enter your address: line 1"/>
-                </properties>
-              </component>
               <component id="66f80" class="javax.swing.JLabel" binding="lblCountry">
                 <constraints>
-                  <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                   <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
@@ -282,7 +231,7 @@
               </component>
               <component id="aa4b0" class="javax.swing.JTextField" binding="txtSCountry">
                 <constraints>
-                  <grid row="18" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="16" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms defaultalign-horz="false"/>
@@ -294,7 +243,7 @@
               </component>
               <component id="e0367" class="javax.swing.JTextField" binding="txtSState">
                 <constraints>
-                  <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
@@ -306,28 +255,16 @@
               </component>
               <component id="82d54" class="javax.swing.JLabel" binding="lblShipping">
                 <constraints>
-                  <grid row="11" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                  <grid row="9" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-vert="false"/>
                 </constraints>
                 <properties>
                   <text value="------------Shipping Address-------------------------------------------------------------------------"/>
                 </properties>
               </component>
-              <component id="82a1b" class="javax.swing.JTextField" binding="txtFirst">
-                <constraints>
-                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                  <forms defaultalign-horz="false"/>
-                </constraints>
-                <properties>
-                  <text value=""/>
-                  <toolTipText value="Enter first name here"/>
-                </properties>
-              </component>
               <component id="b898a" class="javax.swing.JLabel" binding="lblInfo">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-vert="false"/>
                 </constraints>
                 <properties>
@@ -336,13 +273,35 @@
               </component>
               <component id="7317b" class="javax.swing.JTextField" binding="txtSZip">
                 <constraints>
-                  <grid row="16" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="14" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <forms top="0" left="0" bottom="0" right="10" defaultalign-horz="false"/>
                 </constraints>
                 <properties>
                   <toolTipText value="Enter your zip code"/>
+                </properties>
+              </component>
+              <component id="6a7ce" class="javax.swing.JTextField" binding="txtSAddr1">
+                <constraints>
+                  <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter your address: line 1"/>
+                </properties>
+              </component>
+              <component id="c4059" class="javax.swing.JTextField" binding="txtFirst">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <toolTipText value="Enter first name here"/>
                 </properties>
               </component>
             </children>
@@ -370,7 +329,7 @@
             <rowspec value="top:15dlu:noGrow"/>
             <rowspec value="center:max(d;4px):noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
-            <rowspec value="center:33px:noGrow"/>
+            <rowspec value="center:52px:noGrow"/>
             <colspec value="fill:111px:noGrow"/>
             <colspec value="fill:48px:noGrow"/>
             <colspec value="left:34dlu:noGrow"/>
@@ -381,9 +340,10 @@
               <tabbedpane title="Payment Info" enabled="false"/>
             </constraints>
             <properties>
-              <maximumSize width="563" height="500"/>
-              <minimumSize width="563" height="500"/>
-              <preferredSize width="563" height="500"/>
+              <maximumSize width="563" height="510"/>
+              <minimumSize width="563" height="510"/>
+              <preferredSize width="563" height="510"/>
+              <requestFocusEnabled value="false"/>
             </properties>
             <border type="none" title=""/>
             <children>
@@ -675,6 +635,9 @@
                 </constraints>
                 <properties>
                   <label value="Back"/>
+                  <maximumSize width="100" height="35"/>
+                  <minimumSize width="100" height="35"/>
+                  <preferredSize width="100" height="35"/>
                   <text value="Back"/>
                 </properties>
               </component>
@@ -694,6 +657,9 @@
                 </constraints>
                 <properties>
                   <label value="To Order Summary"/>
+                  <maximumSize width="130" height="35"/>
+                  <minimumSize width="130" height="35"/>
+                  <preferredSize width="130" height="35"/>
                   <text value="To Order Summary"/>
                 </properties>
               </component>

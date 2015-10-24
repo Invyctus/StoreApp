@@ -2,8 +2,8 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gui.dialogs.CartGUI">
   <grid id="27dc6" binding="pnlCart" layout-manager="FormLayout">
     <rowspec value="center:d:grow"/>
-    <rowspec value="top:208dlu:noGrow"/>
-    <rowspec value="center:47px:grow"/>
+    <rowspec value="top:186dlu:noGrow"/>
+    <rowspec value="center:47px:noGrow"/>
     <colspec value="fill:345px:grow"/>
     <colspec value="left:95dlu:noGrow"/>
     <colspec value="fill:29px:noGrow"/>
@@ -14,15 +14,6 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="95c66" class="javax.swing.JButton" binding="btnBack">
-        <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <forms top="5" left="5" bottom="5" right="0" defaultalign-horz="false"/>
-        </constraints>
-        <properties>
-          <text value="Continue Shopping"/>
-        </properties>
-      </component>
       <component id="96395" class="javax.swing.JLabel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -56,6 +47,9 @@
           <forms top="5" left="0" bottom="5" right="5" defaultalign-horz="false"/>
         </constraints>
         <properties>
+          <maximumSize width="141" height="35"/>
+          <minimumSize width="141" height="35"/>
+          <preferredSize width="141" height="35"/>
           <text value="Proceed to Checkout"/>
         </properties>
       </component>
@@ -68,6 +62,18 @@
         </constraints>
         <properties>
           <columnSelectionAllowed value="false"/>
+        </properties>
+      </component>
+      <component id="568" class="javax.swing.JButton" binding="btnBack">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms top="0" left="5" bottom="0" right="0" defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <maximumSize width="133" height="35"/>
+          <minimumSize width="133" height="35"/>
+          <preferredSize width="133" height="35"/>
+          <text value="Coninue Shopping"/>
         </properties>
       </component>
     </children>

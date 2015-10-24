@@ -1,6 +1,6 @@
 package gui.dialogs;
 
-import gui.HomeGUI;
+import gui.Home.HomeGUI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -53,6 +53,7 @@ public class CartGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 CheckoutGUI checkoutGUI = new CheckoutGUI();
+                checkoutGUI.setSize(407, 410);
             }
         });
         //</editor-fold>

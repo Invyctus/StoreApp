@@ -1,6 +1,5 @@
 package gui.dialogs;
 
-import gui.HomeGUI;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -46,21 +45,15 @@ public class CheckoutGUI extends JFrame {
     private JPanel pnlCheckout;
     private JPanel pnlCustomer;
     private JPanel pnlOrder;
-    private JTextField txtFirst;
     private JLabel lblFirst;
     private JLabel lblLast;
     private JLabel lblPhone;
     private JLabel lblEmail;
     private JTextField txtEmail;
-    private JLabel lblRegister;
-    private JLabel lblUser;
-    private JLabel lblPass;
-    private JTextField textField1;
     private JTextField txtPhone;
     private JTextField txtLast;
     private JButton btnNext;
     private JButton btnBack;
-    private JTextField txtUser;
     private JTextField txtSState;
     private JLabel lblCountry;
     private JLabel lblZip;
@@ -92,6 +85,7 @@ public class CheckoutGUI extends JFrame {
     private JRadioButton rbStandard;
     private JRadioButton rbPriority;
     private JRadioButton rbOvernight;
+    private JTextField txtFirst;
     boolean isMens;
     final static double standard = 5.00;
     final static double priority = 9.45;
@@ -123,10 +117,10 @@ public class CheckoutGUI extends JFrame {
            @Override
            public void stateChanged(ChangeEvent e) {
                if (tbCheckOut.getSelectedIndex() == 0) {
-                   setSize(407, 538);
+                   setSize(407, 410);
                }
                else if (tbCheckOut.getSelectedIndex() == 1) {
-                   setSize(407,520);
+                   setSize(407,535);
                }
                else if (tbCheckOut.getSelectedIndex() == 2) {
                    setSize(500,500);

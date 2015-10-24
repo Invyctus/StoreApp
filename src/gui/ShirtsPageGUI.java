@@ -1,7 +1,7 @@
 package gui;
 
+import gui.Home.HomeGUI;
 import gui.dialogs.CartGUI;
-import gui.dialogs.CheckoutGUI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
