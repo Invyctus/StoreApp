@@ -25,11 +25,6 @@ import java.awt.event.ActionListener;
         Add create account feature
                 Get customer email
                 Get password
-                Username by default is set to the customers email
-
-       How should we implement these features?
-            My idea is a button for both LogIn and SignUp
-            When the button is clicked display a small frame that asks for information above respectively
 
  */
 public class HomeGUI extends JFrame {

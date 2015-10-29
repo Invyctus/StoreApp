@@ -11,13 +11,12 @@ import java.util.ArrayList;
  */
 public class IODB {
     //<editor-fold desc="DB Connection Information">
-    private static String user = "invictus";
+    private static String user = "masteruser";
     private static String password = "password";
     private static String dbName = "ORCL";
-    private static String host = "localhost";
+    private static String host = "oodproject.cyt9gmujiooj.us-west-2.rds.amazonaws.com";
     private static String port = "1521";
     //</editor-fold>
-
 
     private static class DBConnection {
         private static java.sql.Connection conn = null;

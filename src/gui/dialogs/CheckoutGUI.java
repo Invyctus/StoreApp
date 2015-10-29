@@ -86,6 +86,10 @@ public class CheckoutGUI extends JFrame {
     private JRadioButton rbPriority;
     private JRadioButton rbOvernight;
     private JTextField txtFirst;
+    private JTextArea txtaCustInfo;
+    private JTextArea txtaPayInfo;
+    private JTextField txtaOrderInfo;
+    private JButton btnComplete;
     boolean isMens;
     final static double standard = 5.00;
     final static double priority = 9.45;
@@ -123,7 +127,7 @@ public class CheckoutGUI extends JFrame {
                    setSize(407,535);
                }
                else if (tbCheckOut.getSelectedIndex() == 2) {
-                   setSize(500,500);
+                   setSize(407, 575);
                }
                else {
                    setSize(500,500);
