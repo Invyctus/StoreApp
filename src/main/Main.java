@@ -4,6 +4,7 @@ import gui.Home.HomeGUI;
 import utils.IODB;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  * Author: John Russell
@@ -41,6 +42,7 @@ public class Main {
                 ex.printStackTrace();
             }
         }
+
         IODB.instantiate();
 
 
@@ -50,7 +52,7 @@ public class Main {
         IODB.executeQueries(insertQuery);
 
         */
-         /* Example pull data from database
+            // Example pull data from database
 
         String query = "SELECT * FROM ITEMS";
         ArrayList<ArrayList<Object>> test = IODB.getQueryResults(query);
@@ -61,11 +63,10 @@ public class Main {
 
             }
         }
-        */
-
-
 
         HomeGUI homeScreen = new HomeGUI();
+
+
 
     }
 }

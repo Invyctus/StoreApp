@@ -14,7 +14,7 @@ public class IODB {
     private static String user = "masteruser";
     private static String password = "password";
     private static String dbName = "ORCL";
-    private static String host = "oodproject.cyt9gmujiooj.us-west-2.rds.amazonaws.com";
+    private static String host = "oodproj.cc4igjdgxv8g.us-west-2.rds.amazonaws.com";
     private static String port = "1521";
     //</editor-fold>
 
@@ -42,14 +42,18 @@ public class IODB {
         }
 
         public static void closeConnection() {
+            JFrame connCloseFrame = createLoadingFrame("Closing connection...") ;
+
             try {
-                conn.close();
+                if (conn != null) { conn.close(); }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Error reloading connection.",
                         JOptionPane.ERROR_MESSAGE);
             }
+            connCloseFrame.dispose();
+            System.out.println("Connection closed");
         }
-        public static Connection getConnection() {
+        public static Connection getConnection()  {
             if (conn != null)
                 return conn;
             else
@@ -58,9 +62,8 @@ public class IODB {
         }
     }
 
-    public static void instantiate() {
-        DBConnection.createConnection();
-    }
+    public static void instantiate() { DBConnection.createConnection(); }
+    public static void close() {DBConnection.closeConnection(); }
 
     /**
      * Function to create connection loading message
