@@ -192,7 +192,7 @@ public class CheckoutGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tbCheckOut.setSelectedIndex(1);
-                tbCheckOut.setEnabledAt(3, false);
+                tbCheckOut.setEnabledAt(2, false);
             }
         });
         //</editor-fold>

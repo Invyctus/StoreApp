@@ -15,13 +15,7 @@ import java.util.ArrayList;
  * Date Created: 10/19/2015
  * Georgia Southern University - 900743229
  */
-/*
-    Todo: For ShirtsPage
-        Decorator Pattern = Matthew Streker
-        Observer pattern maybe... to not have the bare minimum
-        shirt images
 
- */
 public class ShirtsPageGUI extends JFrame{
     //<editor-fold defaultstate="collapsed" desc="JFrame Objects">
     private JPanel pnlShirts;
@@ -176,9 +170,6 @@ public class ShirtsPageGUI extends JFrame{
                         + "'" + cbQuantity.getSelectedItem().toString() + "', " + "'" + custid + "')";
 
                 IODB.executeQueries(insertCart);
-
-
-
 
     }
 }

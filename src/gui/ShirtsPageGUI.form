@@ -206,6 +206,7 @@
           <component id="f3181" class="javax.swing.JLabel" binding="lblPicture">
             <constraints border-constraint="Center"/>
             <properties>
+              <opaque value="false"/>
               <requestFocusEnabled value="false"/>
               <text value=""/>
             </properties>

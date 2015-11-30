@@ -37,27 +37,6 @@ public class Main {
 
         IODB.instantiate();
 
-
-        /* Example insert data to database
-
-        String insertQuery = "INSERT INTO CUSTOMERS (CUSTFIRSTNAME, CUSTLASTNAME, CUSTEMAIL, CUSTPHONE) VALUES ('Inserted', 'FromJava', 'insertfromjava@works.com', '123-098-7645')";
-        IODB.executeQueries(insertQuery);
-
-        */
-            // Example pull data from database
-
-        /*
-        String query = "SELECT * FROM ITEMS";
-        ArrayList<ArrayList<Object>> test = IODB.getQueryResults(query);
-
-        for (ArrayList<Object> arrayList : test) {
-            for (Object o : arrayList) {
-                System.out.printf("%s\n", o.toString());
-
-            }
-        }
-
-        */
         HomeGUI homeScreen = new HomeGUI();
 
 
