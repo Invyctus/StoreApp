@@ -16,7 +16,7 @@ public class CalcTotals {
         ArrayList<ArrayList<Object>> getCost = IODB.getQueryResults(getPrice);
         for (ArrayList<Object> arrayList : getCost) {
             for (Object o : arrayList) {
-                price[0] = Double.parseDouble(o.toString());
+                price[i] = Double.parseDouble(o.toString());
                 i++;
             }
         }
@@ -24,13 +24,13 @@ public class CalcTotals {
         ArrayList<ArrayList<Object>> getAmt = IODB.getQueryResults(getQuant);
         for (ArrayList<Object> arrayList : getAmt) {
             for (Object o : arrayList) {
-                quantity[0] = Double.parseDouble(o.toString());
+                quantity[j] = Double.parseDouble(o.toString());
                 j++;
             }
         }
 
         for(int k = 0; k < price.length; k++) {
-            iTotal += (price[k] * quantity[k]);
+            iTotal += price[k] * quantity[k];
         }
 
         return iTotal;
