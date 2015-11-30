@@ -67,11 +67,11 @@
           <forms top="0" left="0" bottom="0" right="4" defaultalign-horz="false"/>
         </constraints>
         <properties>
-          <label value="Log In"/>
+          <label value=""/>
           <maximumSize width="71" height="32"/>
           <minimumSize width="71" height="32"/>
           <preferredSize width="71" height="32"/>
-          <text value="Log In"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="15aba" class="javax.swing.JButton" binding="btnSignUp">

@@ -1,5 +1,8 @@
 package gui.dialogs;
 
+import utils.CalcTotals;
+import utils.FieldVerification;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -7,38 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Author: John Russell
- * Date Created: 10/20/2015
- * Georgia Southern University - 900743229
+ * Handles checkout process information gathering
  */
-/*
-    Todo: For CheckOut
-        Customer Info Tab:
-            State Pattern if logged in do not display register an account
-            If not logged in, Register an Account appears BUT NOT REQUIRED!!!
-            Do not accept null values in the text areas (form must be filled out)
-            Clean up GUI
-        Payment Info Tab:
-            Strategy Pattern for payment through paypal and credit card or some other means
-            Alter GUI to account for the stategy pattern
-            Do not allow user to continue with null values in any fields (Check customer info and payment info pane before order summary)
-        Order Summary Tab:
-            Has nothing on it at the moment
-            Will display item price, quantity, taxes, shipping total, a subtotal before taxes & shipping (or just before taxes), an order total for everything
-            Will have a submit button that once pressed will finalize the order, add everything to the database and bring up a receipt panel
-            Receipt Panel will likely just be a message box with the same info as the order summary in it
 
-        Optional:
-            Customer Info Tab:
-                Button to allow for login if they have an account but forgot to log in on home page
-                Set next button to Checkout as Guest if no account and register and account not filled out
-            Payment Info Tab:
-
-            Order Summary Tab:
-
-            Receipt Tab:
-                Printable receipt or option to save receipt
- */
 public class CheckoutGUI extends JFrame {
     //<editor-fold defaultstate="collapsed" desc="JFrame Objects">
     private JTabbedPane tbCheckOut;
@@ -88,20 +62,15 @@ public class CheckoutGUI extends JFrame {
     private JTextField txtFirst;
     private JTextArea txtaCustInfo;
     private JTextArea txtaPayInfo;
-    private JTextField txtaOrderInfo;
+    private JTextArea txtaOrderInfo;
     private JButton btnComplete;
+    private JButton btnBack3;
     boolean isMens;
     final static double standard = 5.00;
     final static double priority = 9.45;
     final static double overnight = 21.75;
     //</editor-fold>
 
-    /**
-     * Todo: State pattern if logged in do not display register an account
-     * Button: Next if logged in
-     * Button: Continue as guest if not logged in
-     * Todo: Payment method strategy pattern for accepting Paypal & CreditCards (master,visa, aex,etc...)
-     */
     public CheckoutGUI() {
         super("Checkout");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -110,6 +79,7 @@ public class CheckoutGUI extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+        tbCheckOut.setEnabledAt(0, true);
 
         // Set radio buttons into group so only one is selectable
         ButtonGroup shippingGroup = new ButtonGroup();
@@ -159,28 +129,56 @@ public class CheckoutGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tbCheckOut.setSelectedIndex(0);
-
+                tbCheckOut.setEnabledAt(1, false);
             }
         });
-        /**
-         * Todo: Should only be allowable once all fields contain input
-         * Registration fields not required
-         */
+
         btnNext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tbCheckOut.setEnabledAt(1, true);
-                tbCheckOut.setSelectedIndex(1);
+                if(!FieldVerification.verifyPhone(txtPhone.getText())
+                        || !FieldVerification.verifyAddress(txtSAddr1.getText())
+                        || !FieldVerification.verifyEmail(txtEmail.getText())
+                        || !FieldVerification.verifyZip(txtSZip.getText())
+                        || !FieldVerification.verifyTextInput(txtFirst.getText())
+                        || !FieldVerification.verifyTextInput(txtLast.getText())
+                        || !FieldVerification.verifyTextInput(txtSState.getText())
+                        || !FieldVerification.verifyTextInput(txtSCity.getText())
+                        || !FieldVerification.verifyTextInput(txtSCountry.getText())) {
 
+                } else {
+                    tbCheckOut.setEnabledAt(1, true);
+                    tbCheckOut.setSelectedIndex(1);
+                }
             }
         });
         btnNext2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tbCheckOut.setEnabledAt(2, true);
-                tbCheckOut.setSelectedIndex(2);
+                if(!FieldVerification.verifyCCName(txtCardName.getText())
+                        || !FieldVerification.verifyCCNum(txtCardNum.getText())
+                        || !FieldVerification.verifyCCV(txtCardCCV.getText())
+                        || !FieldVerification.verifyAddress(txtBAddr1.getText())
+                        || !FieldVerification.verifyZip(txtBZip.getText())
+                        || !FieldVerification.verifyTextInput(txtBState.getText())
+                        || !FieldVerification.verifyTextInput(txtBCity.getText())
+                        || !FieldVerification.verifyTextInput(txtBCountry.getText())) {
 
+                } else {
+                    tbCheckOut.setEnabledAt(2, true);
+                    tbCheckOut.setSelectedIndex(2);
+                    updateCust();
+                    updatePay();
+                    updateOrder();
+                }
+            }
+        });
 
+        btnBack3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbCheckOut.setSelectedIndex(1);
+                tbCheckOut.setEnabledAt(3, false);
             }
         });
         //</editor-fold>
@@ -211,5 +209,43 @@ public class CheckoutGUI extends JFrame {
         txtBState.setText("");
 
     }
+    public void updateCust() {
+        txtaCustInfo.setText("");
+        txtaCustInfo.append("Your Info" + "\n" + "-------------------" + "\n" + txtFirst.getText() + "\n" + txtLast.getText() + "\n"
+                + txtEmail.getText() + "\n"  + txtPhone.getText() + "\n"  + "Shipping Address" + "\n" + "-------------------" + "\n"
+                + txtSAddr1.getText() + "\n" + txtSAddr2.getText() + "\n" + txtSCity.getText() + "\n"  + txtSState.getText() + "\n"
+                + txtSZip.getText() + "\n"  + txtSCountry.getText() + "\n");
+    }
+    public void updatePay() {
+        txtaPayInfo.setText("");
+        txtaPayInfo.append("Payment Info" + "\n" + "-------------------" + "\n" + txtCardName.getText() + "\n" + txtCardNum.getText()
+                + "\n"  + txtCardCCV.getText() + "\n"  + cbMonth.getSelectedItem().toString() + "/" + cbYear.getSelectedItem().toString()
+                +  "\n" + "Billing Address" + "\n" + "-------------------" + "\n" + txtBAddr1.getText() + "\n" + txtBAddr2.getText() + "\n" + txtBCity.getText() + "\n"
+                + txtBState.getText() + "\n"  + txtBZip.getText() + "\n"  + txtBCountry.getText() + "\n");
+    }
+    public void updateOrder() {
+        String shipping;
+        double shippingCost;
+        double itemTotal = CalcTotals.getItemTotal();
+        double tax = CalcTotals.getTax(itemTotal);
+        txtaOrderInfo.setText("");
+         if(rbOvernight.isSelected()) {
+             shipping = rbOvernight.getText();
+             shippingCost = 21.75;
+         } else if (rbPriority.isSelected()) {
+             shipping = rbPriority.getText();
+             shippingCost = 9.45;
+         } else {
+             shipping = rbStandard.getText();
+             shippingCost = 4.95;
+         }
 
+            txtaOrderInfo.append("Shipping Method: " + shipping + "\n"
+                                + "Item Total: " + itemTotal + "\n"
+                                + "Shipping Total: $" + shippingCost + "\n"
+                                + "Tax: " + tax + "\n"
+                                + "--------------------------\n"
+                                + "Order Total:" + CalcTotals.getFinal(shippingCost, tax, itemTotal) + "\n");
+
+    }
 }

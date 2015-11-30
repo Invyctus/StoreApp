@@ -1,5 +1,6 @@
 package gui.Home;
 
+import designpatterns.state.*;
 import gui.ShirtsPageGUI;
 
 import javax.swing.*;
@@ -11,22 +12,9 @@ import java.awt.event.ActionListener;
  * Date Created: 10/17/2015
  * Georgia Southern University - 900743229
  *
- *
  * Instance of Home Screen to be displayed
  */
-/*
-    Todo: For Home
-        Add login feature
-                Check username within database
-                Check password within database
-                If match login success
-                If not... the world explodes?
 
-        Add create account feature
-                Get customer email
-                Get password
-
- */
 public class HomeGUI extends JFrame {
 
     //<editor-fold defaultstate="collapsed" desc="JFrame Objects">
@@ -38,6 +26,26 @@ public class HomeGUI extends JFrame {
     private JLabel lblMen;
     private JButton btnSignUp;
     private JButton btnLogIn;
+    private String string;
+    Context context = new Context();
+    LoggedOut loggedOut = new LoggedOut();
+    LoggedIn loggedIn = new LoggedIn();
+    static boolean logged = false;
+    ActionListener logIn = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            LogInGUI logInGUI = new LogInGUI();
+            setVisible(false);
+        }
+    };
+    ActionListener logOut = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "Successfully logged out");
+            setLogged(false);
+            refreshHome();
+        }
+    };
     //</editor-fold>
 
     public HomeGUI() {
@@ -49,6 +57,7 @@ public class HomeGUI extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+        refreshHome();
 
         //<editor-fold defaultstate="collapsed" desc="Button Listeners">
         btnMen.addActionListener(new ActionListener() {
@@ -57,8 +66,8 @@ public class HomeGUI extends JFrame {
                 setVisible(false);
                 ShirtsPageGUI shirtsPage = new ShirtsPageGUI();
                 shirtsPage.getMensIcon();
-                shirtsPage.setVisible(true);
                 shirtsPage.setIsMens(true);
+                shirtsPage.setVisible(true);
             }
         });
         btnWomen.addActionListener(new ActionListener() {
@@ -67,29 +76,48 @@ public class HomeGUI extends JFrame {
                 setVisible(false);
                 ShirtsPageGUI shirtsPage = new ShirtsPageGUI();
                 shirtsPage.getWomensIcon();
-                shirtsPage.setVisible(true);
                 shirtsPage.setIsMens(false);
-            }
-        });
-
-        btnLogIn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                LogInGUI logInGUI = new LogInGUI();
+                shirtsPage.setVisible(true);
             }
         });
 
         btnSignUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                    setVisible(false);
                     SignUpGUI signUpGUI = new SignUpGUI();
             }
         });
+
+
         //</editor-fold>
     }
 
     @Override
     public void setVisible(boolean b) {
         super.setVisible(b);
+    }
+    public static void setLogged(boolean b) { logged = b; }
+    public void refreshHome() {
+        btnLogIn.removeActionListener(logIn);
+        btnLogIn.removeActionListener(logOut);
+
+        if (logged) {
+            context.setState(loggedIn);
+            loggedIn.doAction(context);
+            btnLogIn.setText(context.getState().toString());
+            btnLogIn.addActionListener(logOut);
+            btnSignUp.setEnabled(false);
+            btnMen.setEnabled(true);
+            btnWomen.setEnabled(true);
+        } else {
+            context.setState(loggedOut);
+            loggedOut.doAction(context);
+            btnLogIn.setText(context.getState().toString());
+            btnLogIn.addActionListener(logIn);
+            btnSignUp.setEnabled(true);
+            btnMen.setEnabled(false);
+            btnWomen.setEnabled(false);
+        }
     }
 }

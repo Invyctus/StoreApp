@@ -20,7 +20,7 @@
           <forms defaultalign-vert="false"/>
         </constraints>
         <properties>
-          <enabled value="true"/>
+          <enabled value="false"/>
           <focusable value="true"/>
           <maximumSize width="1000" height="1000"/>
           <minimumSize width="1000" height="1000"/>
@@ -344,6 +344,7 @@
               <tabbedpane title="Payment Info" enabled="false"/>
             </constraints>
             <properties>
+              <enabled value="false"/>
               <maximumSize width="563" height="510"/>
               <minimumSize width="563" height="510"/>
               <preferredSize width="563" height="510"/>
@@ -615,21 +616,21 @@
               </component>
               <component id="a4ad6" class="javax.swing.JRadioButton" binding="rbStandard">
                 <constraints>
-                  <grid row="18" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="18" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
                 <properties>
                   <selected value="true"/>
-                  <text value="Standard Shipping           $5.00"/>
+                  <text value="Standard Shipping"/>
                 </properties>
               </component>
               <component id="ba74e" class="javax.swing.JRadioButton" binding="rbPriority">
                 <constraints>
-                  <grid row="19" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="19" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
                 <properties>
-                  <text value="Priority Shipping              $9.45"/>
+                  <text value="Priority Shipping"/>
                 </properties>
               </component>
               <component id="ef1ba" class="javax.swing.JButton" binding="btnBack2">
@@ -647,11 +648,11 @@
               </component>
               <component id="3fbd2" class="javax.swing.JRadioButton" binding="rbOvernight">
                 <constraints>
-                  <grid row="20" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="20" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
                 <properties>
-                  <text value="Overnight Shipping       $21.75"/>
+                  <text value="Overnight Shipping"/>
                 </properties>
               </component>
               <component id="e1a7a" class="javax.swing.JButton" binding="btnNext2">
@@ -672,7 +673,7 @@
           <grid id="a9bec" binding="pnlOrder" layout-manager="FormLayout">
             <rowspec value="center:260px:noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
-            <rowspec value="center:191px:noGrow"/>
+            <rowspec value="center:175px:noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:55px:noGrow"/>
             <colspec value="fill:200px:noGrow"/>
@@ -682,6 +683,7 @@
               <tabbedpane title="Order Summary"/>
             </constraints>
             <properties>
+              <enabled value="false"/>
               <inheritsPopupMenu value="false"/>
               <maximumSize width="1000" height="1000"/>
               <minimumSize width="1000" height="1000"/>
@@ -701,15 +703,28 @@
                   <editable value="false"/>
                 </properties>
               </component>
-              <component id="953dc" class="javax.swing.JTextField" binding="txtaOrderInfo">
+              <component id="2cc6" class="javax.swing.JButton" binding="btnComplete">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms top="5" left="0" bottom="5" right="0" defaultalign-horz="false" defaultalign-vert="false"/>
                 </constraints>
                 <properties>
-                  <editable value="false"/>
+                  <maximumSize width="115" height="35"/>
+                  <minimumSize width="115" height="35"/>
+                  <preferredSize width="115" height="35"/>
+                  <text value="Complete Order"/>
+                </properties>
+              </component>
+              <component id="e872a" class="javax.swing.JButton" binding="btnBack3">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <maximumSize width="100" height="32"/>
+                  <minimumSize width="100" height="32"/>
+                  <preferredSize width="100" height="32"/>
+                  <text value="Back"/>
                 </properties>
               </component>
               <component id="c7790" class="javax.swing.JTextArea" binding="txtaCustInfo">
@@ -723,16 +738,16 @@
                   <editable value="false"/>
                 </properties>
               </component>
-              <component id="2cc6" class="javax.swing.JButton" binding="btnComplete">
+              <component id="a6b19" class="javax.swing.JTextArea" binding="txtaOrderInfo">
                 <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                  <forms top="5" left="0" bottom="5" right="0" defaultalign-horz="false" defaultalign-vert="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="50"/>
+                  </grid>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
                 </constraints>
                 <properties>
-                  <maximumSize width="115" height="35"/>
-                  <minimumSize width="115" height="35"/>
-                  <preferredSize width="115" height="35"/>
-                  <text value="Complete Order"/>
+                  <editable value="false"/>
+                  <enabled value="true"/>
                 </properties>
               </component>
             </children>

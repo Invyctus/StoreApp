@@ -3,13 +3,32 @@
   <grid id="27dc6" binding="pnlShirts" layout-manager="FormLayout">
     <rowspec value="center:40px:noGrow"/>
     <rowspec value="top:5dlu:noGrow"/>
-    <rowspec value="center:31px:noGrow"/>
+    <rowspec value="center:20px:noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
-    <rowspec value="center:29px:noGrow"/>
-    <rowspec value="top:27dlu:noGrow"/>
     <rowspec value="center:max(d;4px):noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
-    <rowspec value="center:77px:noGrow"/>
+    <rowspec value="center:26px:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="center:25px:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="center:31px:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="center:25px:noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:d:grow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:d:grow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:d:grow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:d:grow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:d:grow"/>
     <rowspec value="top:4dlu:noGrow"/>
     <rowspec value="center:max(d;4px):noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
@@ -17,38 +36,121 @@
     <rowspec value="center:max(d;4px):noGrow"/>
     <rowspec value="center:max(d;4px):noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
-    <rowspec value="center:21dlu:noGrow"/>
-    <rowspec value="top:36dlu:noGrow"/>
-    <rowspec value="center:35px:noGrow"/>
-    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="center:23dlu:noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
-    <rowspec value="center:37px:noGrow"/>
-    <rowspec value="top:38dlu:noGrow"/>
-    <rowspec value="center:48px:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
     <colspec value="fill:385px:noGrow"/>
     <colspec value="left:4dlu:noGrow"/>
-    <colspec value="fill:26px:noGrow"/>
     <colspec value="left:4dlu:noGrow"/>
-    <colspec value="fill:164px:noGrow"/>
-    <colspec value="fill:53px:noGrow"/>
+    <colspec value="fill:12px:noGrow"/>
+    <colspec value="fill:147px:noGrow"/>
+    <colspec value="fill:46px:noGrow"/>
     <constraints>
-      <xy x="20" y="20" width="642" height="652"/>
+      <xy x="20" y="20" width="634" height="664"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <component id="4bb57" class="javax.swing.JLabel" binding="lblPicture">
+      <component id="3de9" class="javax.swing.JLabel" binding="lblColor">
         <constraints>
-          <grid row="2" column="0" row-span="16" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
-          <forms top="5" left="0" bottom="0" right="0" defaultalign-vert="false"/>
+          <grid row="2" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
         </constraints>
         <properties>
+          <font name="Graphite Std Light" size="14" style="1"/>
+          <text value="Color:"/>
+        </properties>
+      </component>
+      <component id="8f73b" class="javax.swing.JButton" binding="btnCheckout">
+        <constraints>
+          <grid row="0" column="5" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms top="5" left="0" bottom="0" right="5" defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <enabled value="true"/>
+          <focusCycleRoot value="false"/>
+          <icon value="resources/CheckoutIcon/rsz_checkout_icon_65x65.jpg"/>
           <text value=""/>
+        </properties>
+      </component>
+      <component id="6efa2" class="javax.swing.JComboBox" binding="cbSize">
+        <constraints>
+          <grid row="7" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="9" fill="1" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="medium"/>
+            <item value="x-small"/>
+            <item value="small"/>
+            <item value="large"/>
+            <item value="x-large"/>
+          </model>
+        </properties>
+      </component>
+      <component id="3d284" class="javax.swing.JLabel" binding="lblPattern">
+        <constraints>
+          <grid row="8" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <font name="Graphite Std Light" size="14" style="1"/>
+          <text value="Pattern:"/>
+        </properties>
+      </component>
+      <component id="fbc53" class="javax.swing.JComboBox" binding="cbPattern">
+        <constraints>
+          <grid row="9" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="9" fill="1" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="plain"/>
+            <item value="compdecal"/>
+            <item value="daddy-o"/>
+            <item value="404fnf"/>
+            <item value="hi!"/>
+            <item value="bouef u der?"/>
+          </model>
+        </properties>
+      </component>
+      <component id="20032" class="javax.swing.JLabel" binding="lblSide">
+        <constraints>
+          <grid row="10" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <enabled value="true"/>
+          <font name="Graphite Std Light" size="14" style="1"/>
+          <text value="Pattern Location:"/>
+        </properties>
+      </component>
+      <component id="7e317" class="javax.swing.JComboBox" binding="cbSide">
+        <constraints>
+          <grid row="11" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="front"/>
+            <item value="back"/>
+          </model>
+        </properties>
+      </component>
+      <component id="c9d8e" class="javax.swing.JButton" binding="btnView">
+        <constraints>
+          <grid row="37" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms top="5" left="0" bottom="0" right="0" defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <preferredSize width="64" height="35"/>
+          <text value="Rotate"/>
         </properties>
       </component>
       <component id="27780" class="javax.swing.JButton" binding="btnBack">
         <constraints>
-          <grid row="23" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="38" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms top="5" left="5" bottom="5" right="0" defaultalign-horz="false"/>
         </constraints>
         <properties>
@@ -62,79 +164,74 @@
       </component>
       <component id="f6fd6" class="javax.swing.JButton" binding="btnAdd">
         <constraints>
-          <grid row="23" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="38" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
           <forms top="5" left="0" bottom="5" right="5" defaultalign-horz="false"/>
         </constraints>
         <properties>
           <maximumSize width="100" height="32"/>
           <minimumSize width="100" height="32"/>
-          <preferredSize width="100" height="32"/>
+          <preferredSize width="100" height="40"/>
           <text value="Add to Cart"/>
         </properties>
       </component>
-      <component id="b437b" class="javax.swing.JTextArea" binding="txtarFeatures">
+      <component id="250b" class="javax.swing.JLabel">
         <constraints>
-          <grid row="21" column="2" row-span="2" col-span="4" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-          <forms defaultalign-horz="false" defaultalign-vert="false"/>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value="Features for life&#10;Stuff&#10;Stuff&#10;Stuff"/>
-        </properties>
-      </component>
-      <component id="c9d8e" class="javax.swing.JButton" binding="btnView">
-        <constraints>
-          <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-          <forms top="5" left="0" bottom="0" right="0" defaultalign-horz="false"/>
-        </constraints>
-        <properties>
-          <text value="Rotate"/>
-        </properties>
-      </component>
-      <component id="4201a" class="javax.swing.JTextArea" binding="txtarDescription">
-        <constraints>
-          <grid row="21" column="0" row-span="2" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-          <forms defaultalign-horz="false" defaultalign-vert="false"/>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value="Here lies description"/>
-        </properties>
-      </component>
-      <component id="3de9" class="javax.swing.JLabel" binding="lblColor">
-        <constraints>
-          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
-          <font name="Graphite Std Light" size="14" style="1"/>
-          <text value="Color:"/>
+          <icon value="resources/Shirts/lologo/logo.png"/>
+          <text value=""/>
         </properties>
       </component>
+      <component id="5f8bf" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="17" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="---------------------------------------------"/>
+        </properties>
+      </component>
+      <grid id="25472" binding="MensShirt" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints>
+          <grid row="2" column="0" row-span="35" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <doubleBuffered value="true"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="f3181" class="javax.swing.JLabel" binding="lblPicture">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <requestFocusEnabled value="false"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
       <component id="3cf1b" class="javax.swing.JComboBox" binding="cbColor">
         <constraints>
-          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="9" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="9" fill="1" indent="0" use-parent-layout="false"/>
           <forms defaultalign-vert="false"/>
         </constraints>
         <properties>
           <model>
-            <item value="White"/>
-            <item value="Green"/>
-            <item value="Black"/>
-            <item value="Red"/>
-            <item value="Blue"/>
-            <item value="Orange"/>
-            <item value="Yellow"/>
+            <item value="white"/>
+            <item value="green"/>
+            <item value="black"/>
+            <item value="red"/>
+            <item value="blue"/>
+            <item value="orange"/>
+            <item value="yellow"/>
           </model>
         </properties>
       </component>
       <component id="8bac8" class="javax.swing.JLabel" binding="lblSize">
         <constraints>
-          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
@@ -142,93 +239,66 @@
           <text value="Size:"/>
         </properties>
       </component>
-      <component id="6efa2" class="javax.swing.JComboBox" binding="cbSize">
+      <component id="b437b" class="javax.swing.JTextArea" binding="txtarFeatures">
         <constraints>
-          <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="9" fill="1" indent="0" use-parent-layout="false"/>
-          <forms defaultalign-vert="false"/>
+          <grid row="18" column="3" row-span="14" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <forms defaultalign-horz="false" defaultalign-vert="false"/>
         </constraints>
         <properties>
-          <model>
-            <item value="medium"/>
-            <item value="x-small"/>
-            <item value="small"/>
-            <item value="large"/>
-            <item value="x-large"/>
-          </model>
+          <editable value="false"/>
+          <text value="Features for life&#10;Stuff&#10;Stuff&#10;Stuff"/>
+          <wrapStyleWord value="true"/>
         </properties>
       </component>
-      <component id="3d284" class="javax.swing.JLabel" binding="lblFront">
+      <component id="f11c2" class="javax.swing.JLabel" binding="lblQuantity">
         <constraints>
-          <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="13" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
-          <font name="Graphite Std Light" size="14" style="1"/>
-          <text value="Front Pattern:"/>
+          <text value="Quantity"/>
         </properties>
       </component>
-      <component id="fbc53" class="javax.swing.JComboBox" binding="cbFront">
+      <component id="f743d" class="javax.swing.JComboBox" binding="cbQuantity">
         <constraints>
-          <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="9" fill="1" indent="0" use-parent-layout="false"/>
-          <forms defaultalign-vert="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value="Plain"/>
-            <item value="Pattern 1"/>
-            <item value="Pattern 2"/>
-            <item value="Pattern 3"/>
-            <item value="Pattern 4"/>
-            <item value="Pattern 5"/>
-          </model>
-        </properties>
-      </component>
-      <component id="20032" class="javax.swing.JLabel" binding="lblBack">
-        <constraints>
-          <grid row="14" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <forms/>
-        </constraints>
-        <properties>
-          <enabled value="true"/>
-          <font name="Graphite Std Light" size="14" style="1"/>
-          <text value="Back Pattern:"/>
-        </properties>
-      </component>
-      <component id="7e317" class="javax.swing.JComboBox" binding="cbBack">
-        <constraints>
-          <grid row="16" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="16" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
           <model>
-            <item value="Plain"/>
-            <item value="Pattern 1"/>
-            <item value="Pattern 2"/>
-            <item value="Pattern 3"/>
-            <item value="Pattern 4"/>
-            <item value="Pattern 5"/>
+            <item value="1"/>
+            <item value="2"/>
+            <item value="3"/>
+            <item value="4"/>
+            <item value="5"/>
+            <item value="6"/>
+            <item value="7"/>
+            <item value="8"/>
+            <item value="9"/>
+            <item value="10"/>
           </model>
         </properties>
       </component>
-      <component id="8f73b" class="javax.swing.JButton" binding="btnCheckout">
+      <component id="10fbe" class="javax.swing.JLabel" binding="lblPrice">
         <constraints>
-          <grid row="0" column="5" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-          <forms top="5" left="0" bottom="0" right="5" defaultalign-vert="false"/>
+          <grid row="35" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
         </constraints>
         <properties>
-          <icon value="resources/CheckoutIcon/rsz_checkout_icon_65x65.jpg"/>
-          <text value=""/>
+          <font size="18" style="1"/>
+          <text value="10.00"/>
         </properties>
       </component>
-      <component id="b9f4e" class="javax.swing.JLabel" binding="lblCount">
+      <component id="e2c0b" class="javax.swing.JLabel">
         <constraints>
-          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-          <forms top="0" left="0" bottom="0" right="3" defaultalign-horz="false"/>
+          <grid row="35" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
         </constraints>
         <properties>
-          <font name="DINPro-Black" size="16" style="1"/>
-          <foreground color="-4521963"/>
-          <text value="0"/>
+          <font size="18" style="1"/>
+          <text value="$"/>
         </properties>
       </component>
     </children>

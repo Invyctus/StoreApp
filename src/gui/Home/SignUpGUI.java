@@ -1,17 +1,21 @@
 package gui.Home;
 
+import utils.FieldVerification;
+import utils.IODB;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Author: John Russell
- * Date Created: 10/24/2015
- * Georgia Southern University - 900743229
+ * Handles SignUp process
+ * Verification on fields
+ * Adds customer to database upon success
  */
 public class SignUpGUI extends JFrame{
     //<editor-fold desc="JFrame Objects">
@@ -62,23 +66,45 @@ public class SignUpGUI extends JFrame{
         btnSubmit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Arrays.equals(pwdPass.getPassword(), pwdVerify.getPassword())) {
-                    if(pwdPass.getPassword().length != 0) {
-                        setVisible(false);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Password can't be empty");
-                        pwdPass.grabFocus();
-                        lblPass.setForeground(Color.red);
-                        lblVerify.setForeground(Color.red);
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Passwords don't match");
-                    pwdPass.grabFocus();
-                    pwdPass.setText(null);
-                    pwdVerify.setText(null);
-                    lblPass.setForeground(Color.red);
-                    lblVerify.setForeground(Color.red);
-                }
+
+               if(!FieldVerification.verifyPhone(txtPhone.getText())
+                       || !FieldVerification.verifyAddress(txtAddr1.getText())
+                       || !FieldVerification.verifyEmail(txtEmail.getText())
+                       || !FieldVerification.verifyZip(txtZip.getText())
+                       || !FieldVerification.verifyTextInput(txtFirst.getText())
+                       || !FieldVerification.verifyTextInput(txtLast.getText())
+                       || !FieldVerification.verifyTextInput(txtState.getText())
+                       || !FieldVerification.verifyTextInput(txtCity.getText())
+                       || !FieldVerification.verifyTextInput(txtCountry.getText())
+                       || !FieldVerification.verifyPassword(pwdPass.getPassword(), pwdVerify.getPassword())) {
+
+
+               } else {
+                   String insertCustomer = "INSERT INTO CUSTOMERS (CUSTFIRSTNAME, CUSTLASTNAME, CUSTEMAIL, CUSTPHONE) VALUES ('" + txtFirst.getText() + "',"
+                           + " '" + txtLast.getText() + "'," + " '" + txtEmail.getText() + "'," + " '" + txtPhone.getText() + "')";
+                   IODB.executeQueries(insertCustomer);
+                   char[] pass = pwdPass.getPassword();
+                   String passString = new String(pass);
+
+                   String getCustID = "SELECT MAX(CUSTID) FROM CUSTOMERS";
+                   ArrayList<ArrayList<Object>> retrieveID = IODB.getQueryResults(getCustID);
+
+                   for (ArrayList<Object> arrayList : retrieveID) {
+                       for (Object o : arrayList) {
+                           String insertAccount = "INSERT INTO ACCOUNT (CUSTEMAIL, PASSWORD, CUSTID)  VALUES ('" + txtEmail.getText() + "',"
+                                   + " '" + passString + "'," + " '" + o.toString() + "')";
+
+                           String insertAddress = "INSERT INTO ADDRESS (STATE, CITY, COUNTRY, ZIP, ADDRESSL1, CUSTID, ADDRESSL2) VALUES ('" + txtState.getText() + "',"
+                                   + " '" + txtCity.getText() + "'," + " '" + txtCountry.getText() +  "'," + " '" + txtZip.getText() + "'," + " '" + txtAddr1.getText() + "',"
+                                   +  " '" + o.toString() + "'," + " '" + txtAddr2.getText() + "')";
+
+                           IODB.executeQueries(insertAccount);
+                           IODB.executeQueries(insertAddress);
+                       }
+                   }
+                   setVisible(false);
+                   HomeGUI homeGUI = new HomeGUI();
+               }
 
             }
         });
@@ -87,6 +113,7 @@ public class SignUpGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                HomeGUI homeGUI = new HomeGUI();
             }
         });
         txtEmail.addFocusListener(new FocusAdapter() {
@@ -96,6 +123,10 @@ public class SignUpGUI extends JFrame{
             }
         });
         //</editor-fold>
+    }
+
+    private void invalid(String ... args) {
+
     }
 
 

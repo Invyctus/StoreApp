@@ -12,17 +12,9 @@ import java.util.ArrayList;
  * Georgia Southern University - 900743229
  *
  * Serves as container for main method within our StoreApp
- * Will talk directly to GUI, GUI will talk to Controllers, Controllers will talk to Models - MVC
  */
 
-/*
-    Todo: For Main
-        Nothing really to do here
-        Patterns we can implement: MVC will be easy, Factory, Decorator, Listener, State, More singleton patterns where necessary
 
-        Patters Implemented Currently
-            John : Set up singleton connection pattern
- */
 public class Main {
 
     public static void main(String[] args) {
@@ -54,6 +46,7 @@ public class Main {
         */
             // Example pull data from database
 
+        /*
         String query = "SELECT * FROM ITEMS";
         ArrayList<ArrayList<Object>> test = IODB.getQueryResults(query);
 
@@ -64,6 +57,7 @@ public class Main {
             }
         }
 
+        */
         HomeGUI homeScreen = new HomeGUI();
 
 

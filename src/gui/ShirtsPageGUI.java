@@ -2,10 +2,13 @@ package gui;
 
 import gui.Home.HomeGUI;
 import gui.dialogs.CartGUI;
+import utils.FieldVerification;
+import utils.IODB;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Author: John Russell
@@ -14,40 +17,36 @@ import java.awt.event.ActionListener;
  */
 /*
     Todo: For ShirtsPage
-        Add Patterns for shirts
-        Add infrastructure - could include factory pattern and decorator pattern in creation of shirt
-        Have items added to cart in database when add to cart clicked
-        Have images display on shirt
-        Display patterns on shirt imgicon
-        State Pattern for the shirtspage depending on whether shopping male shirts or female shirts
-        Clean up ShirtsPageGui
+        Decorator Pattern = Matthew Streker
+        Observer pattern maybe... to not have the bare minimum
+        shirt images
 
-        Optional:
-        Listener Pattern to add users to a waitlist if item is not in stock
-        Allow users to import their own patterns
  */
 public class ShirtsPageGUI extends JFrame{
     //<editor-fold defaultstate="collapsed" desc="JFrame Objects">
     private JPanel pnlShirts;
     private JComboBox cbColor;
     private JComboBox cbSize;
-    private JLabel lblBack;
+    private JLabel lblSide;
     private JLabel lblSize;
     private JLabel lblColor;
     private JLabel lblPicture;
     private JButton btnBack;
     private JButton btnAdd;
-    private JLabel lblFront;
-    private JComboBox cbFront;
-    private JComboBox cbBack;
+    private JLabel lblPattern;
+    private JComboBox cbPattern;
+    private JComboBox cbSide;
     private JButton btnView;
     private JTextArea txtarFeatures;
-    private JTextArea txtarDescription;
     private JButton btnCheckout;
-    private JLabel lblCount;
+    private JPanel MensShirt;
+    private JLabel lblQuantity;
+    private JComboBox cbQuantity;
+    private JLabel lblPrice;
     private boolean isMens = true;
     private boolean isRotate;
-    private static int count;
+    private static int count = 0;
+    public String desc;
     //</editor-fold>
 
     public ShirtsPageGUI() {
@@ -56,12 +55,25 @@ public class ShirtsPageGUI extends JFrame{
         setContentPane(pnlShirts);
         setSize(800,800);
         setResizable(false);
+        //pnlShirts.add(WomensShirt);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-        lblCount.setText(String.valueOf(getCount()));
+        getFeatures();
 
         //<editor-fold defaultstate="collapsed" desc="Button Listeners">
+
+        cbPattern.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cbPattern.getSelectedIndex() == 0) {
+                    lblPrice.setText("10.00");
+                } else {
+                    lblPrice.setText("15.00");
+                }
+            }
+        });
+
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -98,16 +110,18 @@ public class ShirtsPageGUI extends JFrame{
         btnCheckout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                CartGUI cartGUI = new CartGUI();
+                    setVisible(false);
+                    CartGUI cartGUI = new CartGUI();
             }
         });
 
         btnAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setCount();
-                lblCount.setText(String.valueOf(getCount()));
+                updateDesc();
+                addToCart();
+
+                btnCheckout.setEnabled(true);
             }
         });
         //</editor-fold>
@@ -116,22 +130,55 @@ public class ShirtsPageGUI extends JFrame{
     public void getMensIcon() {
         ImageIcon mensIcon = new ImageIcon("C:\\Users\\User\\IdeaProjects\\StoreApp\\src\\resources\\MensShirtImgs\\rsz_mens_shirt_385x409.jpg");
         lblPicture.setIcon(mensIcon);
-
     }
     public void getWomensIcon() {
         ImageIcon womensIcon = new ImageIcon("C:\\Users\\User\\IdeaProjects\\StoreApp\\src\\resources\\WomensShirtImgs\\rsz_womens_shirt_385x409.jpg");
         lblPicture.setIcon(womensIcon);
-    }
-    public int getCount() { return count; }
 
+    }
+    public void getFeatures() {
+        String retrieveFeatures = "SELECT ITEMFEATURES FROM ITEMS WHERE ITEMID = 1";
+
+        ArrayList<ArrayList<Object>> features = IODB.getQueryResults(retrieveFeatures);
+
+        for (ArrayList<Object> arrayList : features) {
+            for (Object o : arrayList) {
+                String[] parts = o.toString().split(", ");
+                txtarFeatures.setText(parts[0] + "\n" + parts[1] + "\n" + parts[2]);
+
+            }
+        }
+    }
+    public void updateDesc() {
+        if (cbPattern.getSelectedItem().toString().equals("plain")) {
+            desc = cbColor.getSelectedItem().toString() + ", " + cbSize.getSelectedItem().toString()
+                    + ", " + cbPattern.getSelectedItem().toString();
+        } else {
+            desc = cbColor.getSelectedItem().toString() + ", " + cbSize.getSelectedItem().toString()
+                    + ", " + cbPattern.getSelectedItem().toString() + ", " + cbSide.getSelectedItem().toString();
+        }
+
+    }
+    public int getCount() {
+        return count;
+    }
     public void setVisible(boolean b) {
         super.setVisible(b);
     }
-
     public void setIsMens(boolean b) {
         isMens = b;
     }
 
-    public void setCount() { count += 1; }
+    public void addToCart() {
+        String custid = FieldVerification.getCustid();
 
+                String insertCart = "INSERT INTO CART (ITEMDESC, PRICE, QUANTITY, CUSTID) VALUES ('" + desc + "', " + "'" + lblPrice.getText() + "', "
+                        + "'" + cbQuantity.getSelectedItem().toString() + "', " + "'" + custid + "')";
+
+                IODB.executeQueries(insertCart);
+
+
+
+
+    }
 }

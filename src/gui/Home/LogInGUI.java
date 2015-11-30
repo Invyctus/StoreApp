@@ -1,13 +1,13 @@
 package gui.Home;
 
+import utils.FieldVerification;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Author: John Russell
- * Date Created: 10/23/2015
- * Georgia Southern University - 900743229
+ * Handles Logging In to the app
  */
 public class LogInGUI extends JFrame {
     //<editor-fold desc="JFrame Objects">
@@ -31,7 +31,13 @@ public class LogInGUI extends JFrame {
         btnLogIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
+                if(!FieldVerification.login(txtUser.getText(), txtPass.getText())) {
+                    JOptionPane.showMessageDialog(null, "Username and password don't match");
+                } else {
+                    HomeGUI.setLogged(true);
+                    setVisible(false);
+                    HomeGUI homeGUI = new HomeGUI();
+                }
             }
         });
 
@@ -39,6 +45,7 @@ public class LogInGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                HomeGUI homeGUI = new HomeGUI();
             }
         });
         //</editor-fold>
