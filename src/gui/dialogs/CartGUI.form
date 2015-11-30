@@ -74,7 +74,9 @@
           </grid>
           <forms defaultalign-horz="false" defaultalign-vert="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <editable value="false"/>
+        </properties>
       </component>
       <component id="c66b2" class="javax.swing.JTextArea" binding="txtaItem">
         <constraints>
@@ -83,7 +85,9 @@
           </grid>
           <forms defaultalign-horz="false" defaultalign-vert="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <editable value="false"/>
+        </properties>
       </component>
       <component id="40d76" class="javax.swing.JTextArea" binding="txtaQuantity">
         <constraints>
@@ -92,7 +96,9 @@
           </grid>
           <forms defaultalign-horz="false" defaultalign-vert="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <editable value="false"/>
+        </properties>
       </component>
       <component id="54db7" class="javax.swing.JButton" binding="btnClear">
         <constraints>

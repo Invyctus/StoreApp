@@ -60,6 +60,19 @@ public class FieldVerification {
         return true;
     }
 
+    public static boolean verifyEmail2(String email) {
+
+        if (!email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
+            JOptionPane.showMessageDialog(null, "Invalid  email address.");
+            return false;
+        }
+        else if (email.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Email address can't be left blank.");
+        }
+        return true;
+    }
+
+
     public static boolean verifyZip(String zip) {
         if (!zip.matches("^[0-9]{5}(?:-[0-9]{4})?$")) {
             JOptionPane.showMessageDialog(null, "Invalid zip code.");

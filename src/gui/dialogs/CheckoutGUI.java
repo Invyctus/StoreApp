@@ -143,7 +143,7 @@ public class CheckoutGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(!FieldVerification.verifyPhone(txtPhone.getText())
                         || !FieldVerification.verifyAddress(txtSAddr1.getText())
-                        || !FieldVerification.verifyEmail(txtEmail.getText())
+                        || !FieldVerification.verifyEmail2(txtEmail.getText())
                         || !FieldVerification.verifyZip(txtSZip.getText())
                         || !FieldVerification.verifyTextInput(txtFirst.getText())
                         || !FieldVerification.verifyTextInput(txtLast.getText())
