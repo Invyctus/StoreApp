@@ -4,12 +4,14 @@ import gui.Home.HomeGUI;
 import gui.ShirtsPageGUI;
 import utils.FieldVerification;
 import utils.IODB;
+import utils.Processes;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Author: John Russell
@@ -71,6 +73,8 @@ public class CartGUI extends JFrame {
     public void setVisible(boolean b) {
         super.setVisible(b);
     }
+
+    //<editor-fold desc="Cart Updaters">
     public void updateCart() {
         try {
             String custid = FieldVerification.getCustid();
@@ -109,15 +113,15 @@ public class CartGUI extends JFrame {
             JOptionPane.showMessageDialog(null, "Cart can't be empty");
         }
 
-
     }
 
     public void clearCart() {
         String custid = FieldVerification.getCustid();
 
-                String clearIt = "delete from cart where custid = " + custid;
-                IODB.executeQueries(clearIt);
+        String clearIt = "delete from cart where custid = " + custid;
+        IODB.executeQueries(clearIt);
 
     }
+    //</editor-fold>
 
 }

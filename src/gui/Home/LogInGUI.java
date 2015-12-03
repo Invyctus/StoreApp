@@ -1,6 +1,7 @@
 package gui.Home;
 
 import utils.FieldVerification;
+import utils.Processes;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -31,9 +32,7 @@ public class LogInGUI extends JFrame {
         btnLogIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!FieldVerification.login(txtUser.getText(), txtPass.getText())) {
-                    JOptionPane.showMessageDialog(null, "Username and password don't match");
-                } else {
+                if(Processes.verifyLogin(txtUser.getText(), txtPass.getText())) {
                     HomeGUI.setLogged(true);
                     setVisible(false);
                     HomeGUI homeGUI = new HomeGUI();

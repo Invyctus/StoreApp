@@ -15,9 +15,10 @@ public class FieldVerification {
     public static boolean verifyTextInput(String text) {
         if (text.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Field can't be left blank.");
+            return false;
         }
 
-        else if (!text.matches("[A-Z][a-zA-Z]*")) {
+        else if (!text.matches("[a-zA-Z ]+")) {
             JOptionPane.showMessageDialog(null, "Field can't contain numbers or special characters.");
             return false;
         }
@@ -31,6 +32,7 @@ public class FieldVerification {
         }
         else if (phone.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Phone number can't be left blank.");
+            return false;
         }
         return true;
     }
@@ -56,6 +58,7 @@ public class FieldVerification {
         }
         else if (email.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Email address can't be left blank.");
+            return false;
         }
         return true;
     }
@@ -68,6 +71,7 @@ public class FieldVerification {
         }
         else if (email.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Email address can't be left blank.");
+            return false;
         }
         return true;
     }
@@ -80,6 +84,7 @@ public class FieldVerification {
         }
         else if (zip.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Zip code can't be left blank.");
+            return false;
         }
         return true;
     }

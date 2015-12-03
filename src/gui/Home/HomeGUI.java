@@ -65,7 +65,7 @@ public class HomeGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 ShirtsPageGUI shirtsPage = new ShirtsPageGUI();
-                shirtsPage.getMensIcon();
+                shirtsPage.setMensIcon("C:\\Users\\User\\IdeaProjects\\StoreApp\\src\\resources\\Shirts\\MensShirtImgs\\mwhitefront.png");
                 shirtsPage.setIsMens(true);
                 shirtsPage.setVisible(true);
             }
@@ -75,7 +75,7 @@ public class HomeGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 ShirtsPageGUI shirtsPage = new ShirtsPageGUI();
-                shirtsPage.getWomensIcon();
+                shirtsPage.setWomensIcon("C:\\Users\\User\\IdeaProjects\\StoreApp\\src\\resources\\Shirts\\WomensShirtImgs\\wwhitefront.png");
                 shirtsPage.setIsMens(false);
                 shirtsPage.setVisible(true);
             }

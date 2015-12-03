@@ -4,10 +4,17 @@ import gui.Home.HomeGUI;
 import gui.dialogs.CartGUI;
 import utils.FieldVerification;
 import utils.IODB;
+import utils.Processes;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.nio.Buffer;
 import java.util.ArrayList;
 
 /**
@@ -37,10 +44,11 @@ public class ShirtsPageGUI extends JFrame{
     private JLabel lblQuantity;
     private JComboBox cbQuantity;
     private JLabel lblPrice;
-    private boolean isMens = true;
-    private boolean isRotate;
-    private static int count = 0;
-    public String desc;
+    private JLabel lblDecal;
+    public static boolean isMens = true;
+    public static boolean isRotate = false;
+    public static String desc;
+    public static String pic;
     //</editor-fold>
 
     public ShirtsPageGUI() {
@@ -49,11 +57,12 @@ public class ShirtsPageGUI extends JFrame{
         setContentPane(pnlShirts);
         setSize(800,800);
         setResizable(false);
-        //pnlShirts.add(WomensShirt);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+
         getFeatures();
+
 
         //<editor-fold defaultstate="collapsed" desc="Button Listeners">
 
@@ -65,6 +74,17 @@ public class ShirtsPageGUI extends JFrame{
                 } else {
                     lblPrice.setText("15.00");
                 }
+
+               // setNewDecal(isMens, cbPattern.getSelectedIndex());
+                setNewIcon(isMens, isRotate, cbColor.getSelectedIndex(), cbPattern.getSelectedIndex());
+
+            }
+        });
+
+        cbColor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setNewIcon(isMens, isRotate, cbColor.getSelectedIndex(), cbPattern.getSelectedIndex());
             }
         });
 
@@ -79,25 +99,8 @@ public class ShirtsPageGUI extends JFrame{
         btnView.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (isMens) {
-                    if (isRotate) {
-                        getMensIcon();
-                        isRotate = false;
-                    } else {
-                            ImageIcon mensIcon = new ImageIcon("C:\\Users\\User\\IdeaProjects\\StoreApp\\src\\resources\\MensShirtImgs\\rsz_mens_shirt_back_385x409.jpg");
-                            lblPicture.setIcon(mensIcon);
-                            isRotate = true;
-                        }
-                } else {
-                    if(isRotate) {
-                        getWomensIcon();
-                        isRotate = false;
-                    } else {
-                        ImageIcon womensIcon = new ImageIcon("C:\\Users\\User\\IdeaProjects\\StoreApp\\src\\resources\\WomensShirtImgs\\rsz_womens_shirt_back_385x409.jpg");
-                        lblPicture.setIcon(womensIcon);
-                        isRotate = true;
-                    }
-                }
+                isRotate = !isRotate;
+                setNewIcon(isMens, isRotate, cbColor.getSelectedIndex(), cbPattern.getSelectedIndex());
             }
         });
 
@@ -113,23 +116,54 @@ public class ShirtsPageGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 updateDesc();
-                addToCart();
-
+                Processes.addToCart(desc, lblPrice.getText(), cbQuantity.getSelectedItem().toString());
+                JOptionPane.showMessageDialog(null, "Item successfully added to cart.");
                 btnCheckout.setEnabled(true);
             }
         });
         //</editor-fold>
     }
 
-    public void getMensIcon() {
-        ImageIcon mensIcon = new ImageIcon("C:\\Users\\User\\IdeaProjects\\StoreApp\\src\\resources\\MensShirtImgs\\rsz_mens_shirt_385x409.jpg");
+    public void setMensIcon(String img) {
+        ImageIcon mensIcon = new ImageIcon(img);
         lblPicture.setIcon(mensIcon);
     }
-    public void getWomensIcon() {
-        ImageIcon womensIcon = new ImageIcon("C:\\Users\\User\\IdeaProjects\\StoreApp\\src\\resources\\WomensShirtImgs\\rsz_womens_shirt_385x409.jpg");
+    public void setWomensIcon(String img) {
+        ImageIcon womensIcon = new ImageIcon(img);
         lblPicture.setIcon(womensIcon);
 
     }
+    public void setNewDecal(boolean isMens, int pattern) {
+        ImageIcon newIcon = new ImageIcon(Processes.setDecal(isMens, pattern));
+        lblPicture.setIcon(newIcon);
+    }
+    public void setNewIcon(boolean isMens, boolean isRotate, int color, int pattern) {
+        String[] icons = Processes.setImages(isMens, isRotate, color, pattern);
+
+        try {
+            if(pattern != 0) {
+                BufferedImage shirt = ImageIO.read(new File(icons[0]));
+                BufferedImage decal = ImageIO.read(new File(icons[1]));
+
+                int w = Math.max(shirt.getWidth(), decal.getWidth());
+                int h = Math.max(shirt.getHeight(), decal.getHeight());
+                BufferedImage combined = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+
+                Graphics g = combined.getGraphics();
+
+                g.drawImage(shirt, 0, 0, null);
+                g.drawImage(decal, 0, 0, null);
+                ImageIcon newIcon = new ImageIcon(combined);
+                lblPicture.setIcon(newIcon);
+            } else {
+                ImageIcon newIcon = new ImageIcon(icons[0]);
+                lblPicture.setIcon(newIcon);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void getFeatures() {
         String retrieveFeatures = "SELECT ITEMFEATURES FROM ITEMS WHERE ITEMID = 1";
 
@@ -139,7 +173,6 @@ public class ShirtsPageGUI extends JFrame{
             for (Object o : arrayList) {
                 String[] parts = o.toString().split(", ");
                 txtarFeatures.setText(parts[0] + "\n" + parts[1] + "\n" + parts[2]);
-
             }
         }
     }
@@ -151,10 +184,6 @@ public class ShirtsPageGUI extends JFrame{
             desc = cbColor.getSelectedItem().toString() + ", " + cbSize.getSelectedItem().toString()
                     + ", " + cbPattern.getSelectedItem().toString() + ", " + cbSide.getSelectedItem().toString();
         }
-
-    }
-    public int getCount() {
-        return count;
     }
     public void setVisible(boolean b) {
         super.setVisible(b);
@@ -163,13 +192,4 @@ public class ShirtsPageGUI extends JFrame{
         isMens = b;
     }
 
-    public void addToCart() {
-        String custid = FieldVerification.getCustid();
-
-                String insertCart = "INSERT INTO CART (ITEMDESC, PRICE, QUANTITY, CUSTID) VALUES ('" + desc + "', " + "'" + lblPrice.getText() + "', "
-                        + "'" + cbQuantity.getSelectedItem().toString() + "', " + "'" + custid + "')";
-
-                IODB.executeQueries(insertCart);
-
-    }
 }

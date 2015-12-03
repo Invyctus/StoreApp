@@ -2,6 +2,7 @@ package gui.Home;
 
 import utils.FieldVerification;
 import utils.IODB;
+import utils.Processes;
 
 import javax.swing.*;
 import java.awt.*;
@@ -67,45 +68,11 @@ public class SignUpGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-               if(!FieldVerification.verifyPhone(txtPhone.getText())
-                       || !FieldVerification.verifyAddress(txtAddr1.getText())
-                       || !FieldVerification.verifyEmail(txtEmail.getText())
-                       || !FieldVerification.verifyZip(txtZip.getText())
-                       || !FieldVerification.verifyTextInput(txtFirst.getText())
-                       || !FieldVerification.verifyTextInput(txtLast.getText())
-                       || !FieldVerification.verifyTextInput(txtState.getText())
-                       || !FieldVerification.verifyTextInput(txtCity.getText())
-                       || !FieldVerification.verifyTextInput(txtCountry.getText())
-                       || !FieldVerification.verifyPassword(pwdPass.getPassword(), pwdVerify.getPassword())) {
-
-
-               } else {
-                   String insertCustomer = "INSERT INTO CUSTOMERS (CUSTFIRSTNAME, CUSTLASTNAME, CUSTEMAIL, CUSTPHONE) VALUES ('" + txtFirst.getText() + "',"
-                           + " '" + txtLast.getText() + "'," + " '" + txtEmail.getText() + "'," + " '" + txtPhone.getText() + "')";
-                   IODB.executeQueries(insertCustomer);
-                   char[] pass = pwdPass.getPassword();
-                   String passString = new String(pass);
-
-                   String getCustID = "SELECT MAX(CUSTID) FROM CUSTOMERS";
-                   ArrayList<ArrayList<Object>> retrieveID = IODB.getQueryResults(getCustID);
-
-                   for (ArrayList<Object> arrayList : retrieveID) {
-                       for (Object o : arrayList) {
-                           String insertAccount = "INSERT INTO ACCOUNT (CUSTEMAIL, PASSWORD, CUSTID)  VALUES ('" + txtEmail.getText() + "',"
-                                   + " '" + passString + "'," + " '" + o.toString() + "')";
-
-                           String insertAddress = "INSERT INTO ADDRESS (STATE, CITY, COUNTRY, ZIP, ADDRESSL1, CUSTID, ADDRESSL2) VALUES ('" + txtState.getText() + "',"
-                                   + " '" + txtCity.getText() + "'," + " '" + txtCountry.getText() +  "'," + " '" + txtZip.getText() + "'," + " '" + txtAddr1.getText() + "',"
-                                   +  " '" + o.toString() + "'," + " '" + txtAddr2.getText() + "')";
-
-                           IODB.executeQueries(insertAccount);
-                           IODB.executeQueries(insertAddress);
-                       }
-                   }
-                   setVisible(false);
-                   HomeGUI homeGUI = new HomeGUI();
-               }
-
+                if(Processes.verifySignup(pwdPass.getPassword(), pwdVerify.getPassword(), 0, txtPhone.getText(), txtAddr1.getText(), txtEmail.getText(), txtZip.getText(),
+                                        txtFirst.getText(), txtLast.getText(), txtState.getText(), txtCity.getText(), txtCountry.getText(), txtAddr2.getText())) {
+                    setVisible(false);
+                    HomeGUI homeGUI = new HomeGUI();
+                }
             }
         });
 

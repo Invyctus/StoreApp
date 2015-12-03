@@ -3,6 +3,7 @@ package gui.dialogs;
 import utils.CalcTotals;
 import utils.FieldVerification;
 import utils.IODB;
+import utils.Processes;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -66,14 +67,6 @@ public class CheckoutGUI extends JFrame {
     private JTextArea txtaOrderInfo;
     private JButton btnComplete;
     private JButton btnBack3;
-    boolean isMens;
-    public double tax;
-    public double shippingCost;
-    public double finalTotal;
-    public double itemTotal;
-    final static double standard = 5.00;
-    final static double priority = 9.45;
-    final static double overnight = 21.75;
     //</editor-fold>
 
     public CheckoutGUI() {
@@ -81,10 +74,12 @@ public class CheckoutGUI extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setContentPane(pnlCheckout);
         setResizable(false);
+        tbCheckOut.setEnabledAt(0, true);
+        String[] info = Processes.getCustomerInfo();
+        setCustomerInfo(info);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-        tbCheckOut.setEnabledAt(0, true);
 
         // Set radio buttons into group so only one is selectable
         ButtonGroup shippingGroup = new ButtonGroup();
@@ -135,43 +130,31 @@ public class CheckoutGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 tbCheckOut.setSelectedIndex(0);
                 tbCheckOut.setEnabledAt(1, false);
+                tbCheckOut.setEnabledAt(0, true);
             }
         });
 
         btnNext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!FieldVerification.verifyPhone(txtPhone.getText())
-                        || !FieldVerification.verifyAddress(txtSAddr1.getText())
-                        || !FieldVerification.verifyEmail2(txtEmail.getText())
-                        || !FieldVerification.verifyZip(txtSZip.getText())
-                        || !FieldVerification.verifyTextInput(txtFirst.getText())
-                        || !FieldVerification.verifyTextInput(txtLast.getText())
-                        || !FieldVerification.verifyTextInput(txtSState.getText())
-                        || !FieldVerification.verifyTextInput(txtSCity.getText())
-                        || !FieldVerification.verifyTextInput(txtSCountry.getText())) {
-
-                } else {
+                char[] test = {'t'};
+                if (Processes.verifySignup(test, test , 1, txtPhone.getText(), txtSAddr1.getText(), txtEmail.getText(), txtSZip.getText(),
+                        txtFirst.getText(), txtLast.getText(), txtSState.getText(), txtSCity.getText(), txtSCountry.getText())) {
                     tbCheckOut.setEnabledAt(1, true);
                     tbCheckOut.setSelectedIndex(1);
+                    tbCheckOut.setEnabledAt(0, false);
+
                 }
             }
         });
         btnNext2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!FieldVerification.verifyCCName(txtCardName.getText())
-                        || !FieldVerification.verifyCCNum(txtCardNum.getText())
-                        || !FieldVerification.verifyCCV(txtCardCCV.getText())
-                        || !FieldVerification.verifyAddress(txtBAddr1.getText())
-                        || !FieldVerification.verifyZip(txtBZip.getText())
-                        || !FieldVerification.verifyTextInput(txtBState.getText())
-                        || !FieldVerification.verifyTextInput(txtBCity.getText())
-                        || !FieldVerification.verifyTextInput(txtBCountry.getText())) {
-
-                } else {
+                if (Processes.verifyPayment(txtCardName.getText(), txtCardNum.getText(), txtCardCCV.getText(), txtBAddr1.getText(), txtBZip.getText(), txtBState.getText(),
+                        txtBCity.getText(), txtBCountry.getText())) {
                     tbCheckOut.setEnabledAt(2, true);
                     tbCheckOut.setSelectedIndex(2);
+                    tbCheckOut.setEnabledAt(1, false);
                     updateCust();
                     updatePay();
                     updateOrder();
@@ -182,9 +165,26 @@ public class CheckoutGUI extends JFrame {
         btnComplete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Your order has been placed successfully!");
+                double shippingCost = 0;
 
-                completeOrder();
+                if(rbOvernight.isSelected()) {
+                    shippingCost = 21.75;
+                } else if (rbPriority.isSelected()) {
+                    shippingCost = 9.45;
+                } else {
+                    shippingCost = 4.95;
+                }
+
+                double[] totals = Processes.getTotals(shippingCost);
+                JOptionPane.showMessageDialog(null, "Your order has been placed successfully!");
+                int isShipping = 0;
+
+                if(chbShipping.isSelected()) {
+                    isShipping = 1;
+                }
+                Processes.completeOrder(isShipping, totals, txtSState.getText(), txtSCity.getText(), txtSCountry.getText(), txtSZip.getText(), txtSAddr1.getText(), txtSAddr2.getText(),
+                        txtBState.getText(), txtBCity.getText(), txtBCountry.getText(), txtBZip.getText(), txtBAddr1.getText(), txtBAddr2.getText(), txtCardName.getText(),
+                        txtCardNum.getText(), txtCardCCV.getText());
             }
         });
 
@@ -193,6 +193,7 @@ public class CheckoutGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 tbCheckOut.setSelectedIndex(1);
                 tbCheckOut.setEnabledAt(2, false);
+                tbCheckOut.setEnabledAt(1, true);
             }
         });
         //</editor-fold>
@@ -202,6 +203,7 @@ public class CheckoutGUI extends JFrame {
         super.setVisible(b);
     }
 
+    //<editor-fold desc="Set Text Fields">
     /**
      * Method to set the billing same as shipping
      */
@@ -223,6 +225,19 @@ public class CheckoutGUI extends JFrame {
         txtBState.setText("");
 
     }
+    public void setCustomerInfo(String[] customerInfo) {
+        txtFirst.setText(customerInfo[1]);
+        txtLast.setText(customerInfo[2]);
+        txtEmail.setText(customerInfo[3]);
+        txtPhone.setText(customerInfo[4]);
+        txtSState.setText(customerInfo[5]);
+        txtSCity.setText(customerInfo[6]);
+        txtSCountry.setText(customerInfo[7]);
+        txtSZip.setText(customerInfo[8]);
+        txtSAddr1.setText(customerInfo[9]);
+    }
+    //</editor-fold>
+    //<editor-fold desc="Update Info">
     public void updateCust() {
         txtaCustInfo.setText("");
         txtaCustInfo.append("Your Info" + "\n" + "-------------------" + "\n" + txtFirst.getText() + "\n" + txtLast.getText() + "\n"
@@ -238,71 +253,32 @@ public class CheckoutGUI extends JFrame {
                 + txtBState.getText() + "\n"  + txtBZip.getText() + "\n"  + txtBCountry.getText() + "\n");
     }
     public void updateOrder() {
-        String shipping;
+         String shipping;
+         double shippingCost = 0;
 
-        txtaOrderInfo.setText("");
+         txtaOrderInfo.setText("");
          if(rbOvernight.isSelected()) {
              shipping = rbOvernight.getText();
-             setShippingCost(21.75);
+             shippingCost = 21.75;
          } else if (rbPriority.isSelected()) {
              shipping = rbPriority.getText();
-             setShippingCost(9.45);
+             shippingCost = 9.45;
          } else {
              shipping = rbStandard.getText();
-             setShippingCost(4.95);
+             shippingCost = 4.95;
          }
-         setItemTotal(CalcTotals.getItemTotal());
-         setTax(CalcTotals.getTax(itemTotal));
-         setFinalTotal(CalcTotals.getFinal(shippingCost, tax, itemTotal));
 
-            txtaOrderInfo.append("Shipping Method: " + shipping + "\n"
-                                + "Item Total: $" + itemTotal + "\n"
+         double totals[] = Processes.getTotals(shippingCost);
+
+         txtaOrderInfo.append("Shipping Method: " + shipping + "\n"
+                                + "Item Total: $" + totals[0] + "\n"
                                 + "Shipping Total: $" + shippingCost + "\n"
-                                + "Tax: $" + tax + "\n"
+                                + "Tax: $" + totals[1] + "\n"
                                 + "--------------------------\n"
-                                + "Order Total: $" + finalTotal + "\n");
+                                + "Order Total: $" + totals[2] + "\n");
 
     }
-    public void setFinalTotal(double finalTotal) {
-        this.finalTotal = finalTotal;
-    }
-    public void setTax(double tax) {
-        this.tax = tax;
-    }
-    public void setItemTotal(double itemTotal) {
-        this.itemTotal = itemTotal;
-    }
-    public void setShippingCost(double shippingCost) {
-        this.shippingCost = shippingCost;
-    }
-    public void completeOrder() {
-        String custid = FieldVerification.getCustid();
+    //</editor-fold>
 
-        if (chbShipping.isSelected()) {
-            String insertAddress = "INSERT INTO ADDRESS (STATE, CITY, COUNTRY, ZIP, ADDRESSL1, CUSTID, ADDRESSL2) VALUES ('" + txtSState.getText() + "', '" + txtSCity.getText() + "', '"
-                    + txtSCountry.getText() + "', '" + txtSZip.getText() + "', '" + txtSAddr1.getText() + "', '" + custid + "', '" + txtSAddr2.getText() + "')";
 
-            IODB.executeQueries();
-        } else {
-            String insertSAddress = "INSERT INTO ADDRESS (STATE, CITY, COUNTRY, ZIP, ADDRESSL1, CUSTID, ADDRESSL2) VALUES ('" + txtSState.getText() + "', '" + txtSCity.getText() + "', '"
-                    + txtSCountry.getText() + "', '" + txtSZip.getText() + "', '" + txtSAddr1.getText() + "', '" + custid + "', '" + txtSAddr2.getText() + "')";
-            String insertBAddress = "INSERT INTO ADDRESS (STATE, CITY, COUNTRY, ZIP, ADDRESSL1, CUSTID, ADDRESSL2) VALUES ('" + txtBState.getText() + "', '" + txtBCity.getText() + "', '"
-                    + txtBCountry.getText() + "', '" + txtBZip.getText() + "', '" + txtBAddr1.getText() + "', '" + custid + "', '" + txtBAddr2.getText() + "')";
-
-            IODB.executeQueries(insertSAddress);
-            IODB.executeQueries(insertBAddress);
-        }
-        String insertPaymentMethod = "INSERT INTO PAYMENT_METHOD ( CUSTID, PAYMENTMETHOD) VALUES ('" + custid + "', '" + txtCardName.getText() + ", "
-                + txtCardNum.getText() + ", " + txtCardCCV.getText() + "')";
-        IODB.executeQueries(insertPaymentMethod);
-
-        String insertOrder = "INSERT INTO ORDERS (ORDERSUBTOTAL, ORDERTAX, ORDERTOTAL, CUSTID) VALUES ('" + itemTotal + "', '" + tax + "', '"
-                + finalTotal + "', '" + custid + "')";
-        IODB.executeQueries(insertOrder);
-
-        String insertPayment = "INSERT INTO PAYMENT (PAYMENTMETHOD) VALUES ('" + txtCardName.getText() + ", " + txtCardNum.getText() + ", " + txtCardCCV.getText() + "')";
-
-        String clearIt = "delete from cart where custid = " + custid;
-        IODB.executeQueries(clearIt);
-    }
 }
