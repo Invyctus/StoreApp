@@ -233,9 +233,9 @@ public class Processes {
 
         return icon;
     }
-    public static boolean isWaitlisted(String color, String size, boolean isMens) {
+    public static boolean isWaitlisted(String color, String size, boolean isMens, int askingQuantity) {
         int quantity = 0;
-        String getQuantity  = "SELECT QUANTITYINSTOCK FROM ITEMS WHERE ITEMCOLOR = '" + color + "' AND ITEMSIZE = '" + size + "'";
+        String getQuantity  = "SELECT QUANTITYINSTOCK FROM ITEMS WHERE ITEMCOLOR = '" + color + "' AND ITEMSIZE = '" + size + "' AND ITEMID <= 35";
 
         if (!isMens) {
            getQuantity = "SELECT QUANTITYINSTOCK FROM ITEMS WHERE ITEMCOLOR = '" + color + "' AND ITEMSIZE = '" + size + "' AND ITEMID > 35";
@@ -249,9 +249,22 @@ public class Processes {
             }
         }
 
+        quantity = quantity - askingQuantity;
+
         if(quantity <= 0) {
             return false;
         }
         return true;
+    }
+
+    public static void stockUpdate(String color, String size, boolean isMens) {
+
+        String updateQuantity  = "UPDATE ITEMS SET QUANTITYINSTOCK = 12 WHERE ITEMCOLOR = '" + color + "' AND ITEMSIZE = '" + size + "' AND ITEMID <= 35";
+
+        if (!isMens) {
+            updateQuantity  = "UPDATE ITEMS SET QUANTITYINSTOCK = 12 WHERE ITEMCOLOR = '" + color + "' AND ITEMSIZE = '" + size + "' AND ITEMID > 35";
+            IODB.executeQueries(updateQuantity);
+        }
+        IODB.executeQueries(updateQuantity);
     }
 }

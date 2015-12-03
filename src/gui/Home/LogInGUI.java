@@ -1,6 +1,5 @@
 package gui.Home;
 
-import utils.FieldVerification;
 import utils.Processes;
 
 import javax.swing.*;
@@ -14,7 +13,7 @@ public class LogInGUI extends JFrame {
     //<editor-fold desc="JFrame Objects">
     private JPanel pnlLogIn;
     private JTextField txtUser;
-    private JTextField txtPass;
+    private JPasswordField pwdPass;
     private JButton btnCancel;
     private JButton btnLogIn;
     //</editor-fold>
@@ -32,7 +31,9 @@ public class LogInGUI extends JFrame {
         btnLogIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(Processes.verifyLogin(txtUser.getText(), txtPass.getText())) {
+                String pass = new String(pwdPass.getPassword());
+
+                if(Processes.verifyLogin(txtUser.getText(), pass)) {
                     HomeGUI.setLogged(true);
                     setVisible(false);
                     HomeGUI homeGUI = new HomeGUI();

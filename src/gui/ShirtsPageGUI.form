@@ -18,6 +18,8 @@
     <rowspec value="top:4dlu:noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
     <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
     <rowspec value="center:25px:noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
     <rowspec value="center:d:grow"/>
@@ -140,7 +142,7 @@
       </component>
       <component id="c9d8e" class="javax.swing.JButton" binding="btnView">
         <constraints>
-          <grid row="37" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="39" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <forms top="5" left="0" bottom="0" right="0" defaultalign-horz="false"/>
         </constraints>
         <properties>
@@ -150,7 +152,7 @@
       </component>
       <component id="27780" class="javax.swing.JButton" binding="btnBack">
         <constraints>
-          <grid row="38" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="40" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms top="5" left="5" bottom="5" right="0" defaultalign-horz="false"/>
         </constraints>
         <properties>
@@ -164,7 +166,7 @@
       </component>
       <component id="f6fd6" class="javax.swing.JButton" binding="btnAdd">
         <constraints>
-          <grid row="38" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="40" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
           <forms top="5" left="0" bottom="5" right="5" defaultalign-horz="false"/>
         </constraints>
         <properties>
@@ -174,19 +176,9 @@
           <text value="Add to Cart"/>
         </properties>
       </component>
-      <component id="250b" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <forms/>
-        </constraints>
-        <properties>
-          <icon value="resources/Shirts/lologo/logo.png"/>
-          <text value=""/>
-        </properties>
-      </component>
       <component id="5f8bf" class="javax.swing.JLabel">
         <constraints>
-          <grid row="17" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="19" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
@@ -195,7 +187,7 @@
       </component>
       <grid id="25472" binding="MensShirt" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints>
-          <grid row="2" column="0" row-span="35" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="37" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
@@ -242,7 +234,7 @@
       </component>
       <component id="b437b" class="javax.swing.JTextArea" binding="txtarFeatures">
         <constraints>
-          <grid row="18" column="3" row-span="14" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="20" column="3" row-span="15" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
           <forms defaultalign-horz="false" defaultalign-vert="false"/>
@@ -284,7 +276,7 @@
       </component>
       <component id="10fbe" class="javax.swing.JLabel" binding="lblPrice">
         <constraints>
-          <grid row="35" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="37" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms defaultalign-horz="false"/>
         </constraints>
         <properties>
@@ -294,12 +286,32 @@
       </component>
       <component id="e2c0b" class="javax.swing.JLabel">
         <constraints>
-          <grid row="35" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="37" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
           <forms defaultalign-horz="false"/>
         </constraints>
         <properties>
           <font size="18" style="1"/>
           <text value="$"/>
+        </properties>
+      </component>
+      <component id="31be0" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <font name="Comic Sans MS" size="28" style="1"/>
+          <text value="Design Your T-Shirt"/>
+        </properties>
+      </component>
+      <component id="9b80e" class="javax.swing.JLabel" binding="lblWaitlist">
+        <constraints>
+          <grid row="18" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Register for Waitlist"/>
+          <visible value="false"/>
         </properties>
       </component>
     </children>

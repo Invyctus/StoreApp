@@ -24,7 +24,7 @@ public class Waitlist implements Subject {
     public void unregister(Observer deleteObserver) {
         int observerIndex = observers.indexOf(deleteObserver);
 
-        System.out.println("Observer" + (observerIndex+1) + "deleted");
+        System.out.println("Unregistered from waitlist");
         observers.remove(observerIndex);
     }
 

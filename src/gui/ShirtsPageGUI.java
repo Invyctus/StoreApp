@@ -1,5 +1,7 @@
 package gui;
 
+import designpatterns.observer.Waitlist;
+import designpatterns.observer.WaitlistObserver;
 import gui.Home.HomeGUI;
 import gui.dialogs.CartGUI;
 import utils.FieldVerification;
@@ -11,6 +13,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -44,6 +48,7 @@ public class ShirtsPageGUI extends JFrame{
     private JLabel lblQuantity;
     private JComboBox cbQuantity;
     private JLabel lblPrice;
+    private JLabel lblWaitlist;
     private JLabel lblDecal;
     public static boolean isMens = true;
     public static boolean isRotate = false;
@@ -74,17 +79,44 @@ public class ShirtsPageGUI extends JFrame{
                 } else {
                     lblPrice.setText("15.00");
                 }
-
-               // setNewDecal(isMens, cbPattern.getSelectedIndex());
                 setNewIcon(isMens, isRotate, cbColor.getSelectedIndex(), cbPattern.getSelectedIndex());
-
+                if (Processes.isWaitlisted(cbColor.getSelectedItem().toString(), cbSize.getSelectedItem().toString(), isMens, Integer.parseInt(cbQuantity.getSelectedItem().toString()))) {
+                    lblWaitlist.setVisible(false);
+                    btnAdd.setEnabled(true);
+                } else {
+                    lblWaitlist.setVisible(true);
+                    lblWaitlist.setForeground(Color.cyan);
+                    btnAdd.setEnabled(false);
+                }
             }
         });
+        cbQuantity.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (Processes.isWaitlisted(cbColor.getSelectedItem().toString(), cbSize.getSelectedItem().toString(), isMens, Integer.parseInt(cbQuantity.getSelectedItem().toString()))) {
+                    lblWaitlist.setVisible(false);
+                    btnAdd.setEnabled(true);
+                } else {
+                    lblWaitlist.setVisible(true);
+                    lblWaitlist.setForeground(Color.cyan);
+                    btnAdd.setEnabled(false);
 
+                }
+            }
+        });
         cbColor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setNewIcon(isMens, isRotate, cbColor.getSelectedIndex(), cbPattern.getSelectedIndex());
+                if (Processes.isWaitlisted(cbColor.getSelectedItem().toString(), cbSize.getSelectedItem().toString(), isMens, Integer.parseInt(cbQuantity.getSelectedItem().toString()))) {
+                    lblWaitlist.setVisible(false);
+                    btnAdd.setEnabled(true);
+                } else {
+                    lblWaitlist.setVisible(true);
+                    lblWaitlist.setForeground(Color.cyan);
+                    btnAdd.setEnabled(false);
+                    Processes.stockUpdate(cbColor.getSelectedItem().toString(), cbSize.getSelectedItem().toString(), isMens);
+                }
             }
         });
 
@@ -101,6 +133,7 @@ public class ShirtsPageGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 isRotate = !isRotate;
                 setNewIcon(isMens, isRotate, cbColor.getSelectedIndex(), cbPattern.getSelectedIndex());
+
             }
         });
 
@@ -121,6 +154,14 @@ public class ShirtsPageGUI extends JFrame{
                 btnCheckout.setEnabled(true);
             }
         });
+
+        lblWaitlist.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Waitlist waitlist = new Waitlist();
+                WaitlistObserver observer = new WaitlistObserver(waitlist);
+            }
+        });
         //</editor-fold>
     }
 
@@ -132,10 +173,6 @@ public class ShirtsPageGUI extends JFrame{
         ImageIcon womensIcon = new ImageIcon(img);
         lblPicture.setIcon(womensIcon);
 
-    }
-    public void setNewDecal(boolean isMens, int pattern) {
-        ImageIcon newIcon = new ImageIcon(Processes.setDecal(isMens, pattern));
-        lblPicture.setIcon(newIcon);
     }
     public void setNewIcon(boolean isMens, boolean isRotate, int color, int pattern) {
         String[] icons = Processes.setImages(isMens, isRotate, color, pattern);
@@ -191,5 +228,4 @@ public class ShirtsPageGUI extends JFrame{
     public void setIsMens(boolean b) {
         isMens = b;
     }
-
 }
